@@ -16,19 +16,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Run_GMT_CMD_thread.cpp \
+    Run_GMT_CMD.cpp \
+    gmt_j_option.cpp \
+    gmt_pscoast.cpp \
     main.cpp \
     mainwindow.cpp \
     new_ps_file.cpp \
     waiting_thread.cpp
 
 HEADERS += \
-    Run_GMT_CMD_thread.h \
+    Run_GMT_CMD.h \
+    gmt_j_option.h \
+    gmt_pscoast.h \
     mainwindow.h \
     new_ps_file.h \
     waiting_thread.h
 
 FORMS += \
+    gmt_j_option.ui \
+    gmt_pscoast.ui \
     mainwindow.ui \
     new_ps_file.ui \
     waiting_thread.ui

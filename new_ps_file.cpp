@@ -9,6 +9,10 @@ new_ps_file::new_ps_file(QWidget *parent) :
     ui(new Ui::new_ps_file)
 {
     ui->setupUi(this);
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
+
+    gmt_cmd = ""; // 清空初始化
+
     //限制只能输入正浮点数
     QRegExp regExp("^(?:[1-9]\\d*|0)?(?:\\.\\d+)?$");
     QRegExpValidator *pattern= new QRegExpValidator(regExp, this);

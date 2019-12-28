@@ -1,0 +1,15 @@
+#include <iostream>
+#include <QProcess>
+#include "Run_GMT_CMD.h"
+
+#include <QThread>
+
+Run_GMT_CMD::Run_GMT_CMD(QString S) :
+    cmd(S)
+{}
+
+void Run_GMT_CMD::dowork(){
+    QProcess::execute(cmd);
+    QThread::sleep(10);
+    emit close_ready();
+}
