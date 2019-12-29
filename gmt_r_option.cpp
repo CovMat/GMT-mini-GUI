@@ -19,3 +19,7 @@ void GMT_R_option::on_open_url_clicked()
 {
     QDesktopServices::openUrl(QUrl(QLatin1String("https://api.map.baidu.com/lbsapi/getpoint/index.html")));
 }
+
+QString GMT_R_option::sendData(){
+    return "-R"+ui->range->text();
+}

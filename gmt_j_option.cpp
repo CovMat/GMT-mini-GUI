@@ -13,7 +13,7 @@ GMT_J_option::GMT_J_option(QWidget *parent) :
     ui->paras->setPlaceholderText("参数与前一条命令相同");
     ui->paras->setFocusPolicy(Qt::NoFocus); // 不可获得焦点，禁止编辑
 
-    ui->J_option->addItem("-J[空] 与前一条命令相同");
+    ui->J_option->addItem("-J [空]与前一条命令相同");
     ui->J_option->addItem("-JM Mercator投影");
     ui->J_option->addItem("-JX 笛卡尔坐标投影");
     ui->J_option->addItem("-JA Lambert方位等面积投影");
@@ -79,4 +79,9 @@ void GMT_J_option::on_J_option_currentIndexChanged(int index)
     }
   if (index > 0)
       ui->paras->setFocusPolicy(Qt::StrongFocus); // 重新获取焦点，允许编辑
+}
+
+QString GMT_J_option::sendData(){
+
+    return ui->J_option->currentText().split(' ').at(0)+ui->paras->text();
 }

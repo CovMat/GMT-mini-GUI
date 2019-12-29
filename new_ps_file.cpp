@@ -45,7 +45,7 @@ void new_ps_file::on_ok_button_clicked()
     }
 
     //gmt_cmd = "gmt basemap -JX"+w_input+"c/"+h_input+"c -R0/"+w_input+"/0/"+h_input+" -B1/1 -P -K > tmp.ps";
-    gmt_cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -P ";
+    gmt_cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -P -K ";
     gmt_cmd += "--PS_MEDIA="+w_input+"cx"+h_input+"c ";
     gmt_cmd += "> tmp.ps";
 

@@ -14,6 +14,7 @@ class GMT_J_option : public QWidget
 public:
     explicit GMT_J_option(QWidget *parent = nullptr);
     ~GMT_J_option();
+    QString sendData();
 
 private slots:
     void on_J_option_currentIndexChanged(int index);

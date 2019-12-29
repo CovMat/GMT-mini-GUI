@@ -40,4 +40,15 @@ void MainWindow::on_pscoast_clicked()
 {
     GMT_pscoast_ui = new GMT_pscoast;
     GMT_pscoast_ui->exec();
+
+    QString cmd = GMT_pscoast_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+    }
 }

@@ -123,14 +123,163 @@
   <widget class="QPushButton" name="sea_color">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>320</y>
+     <x>10</x>
+     <y>313</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-S 水系颜色</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dry_color">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>313</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-G 陆地颜色</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="D_option">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>313</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <item>
+    <property name="text">
+     <string>-Da 自动选择海岸线精度</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>-Dfull 精度</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>-Dhigh 精度</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>-Dintermediate 精度</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>-Dlow 精度</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>-Dcrude 精度</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-W海岸线宽度:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="W_pen_w">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>参考：0.5p</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="W_pen_color">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>340</y>
      <width>80</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>海岸线颜色</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>366</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#868686;&quot;&gt;剩余未涉及选项可自由添加：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="other_options">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>365</y>
+     <width>281</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-N1 -I1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bok">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>410</y>
+     <width>80</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bexit">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>410</y>
+     <width>80</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
    </property>
   </widget>
  </widget>

@@ -14,6 +14,7 @@ class GMT_B_option : public QWidget
 public:
     explicit GMT_B_option(QWidget *parent = nullptr);
     ~GMT_B_option();
+    QString sendData();
 
 private slots:
     void on_all_axes_stateChanged(int arg1);
@@ -35,18 +36,6 @@ private slots:
     void on_frame_s_stateChanged(int arg1);
 
     void on_grid_s_stateChanged(int arg1);
-
-    void on_annotation_e_stateChanged(int arg1);
-
-    void on_frame_e_stateChanged(int arg1);
-
-    void on_grid_e_stateChanged(int arg1);
-
-    void on_annotation_n_stateChanged(int arg1);
-
-    void on_frame_n_stateChanged(int arg1);
-
-    void on_grid_n_stateChanged(int arg1);
 
     void on_all_disable_stateChanged(int arg1);
 

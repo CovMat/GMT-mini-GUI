@@ -12,6 +12,8 @@ GMT_pscoast::GMT_pscoast(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
 
+    gmt_cmd = ""; // 清空初始化
+
     J_option = new GMT_J_option(this); // 添加-J选项
     J_option->show();
     R_option = new GMT_R_option(this); // 添加-R选项
@@ -22,6 +24,13 @@ GMT_pscoast::GMT_pscoast(QWidget *parent) :
     ui->J_Layout->addWidget(J_option);
     ui->R_Layout->addWidget(R_option);
     ui->B_Layout->addWidget(B_option);
+
+    sea_color.setRgb(21,185,255);
+    ui->sea_color->setStyleSheet(QString("background-color: %1").arg(sea_color.name()));
+    dry_color.setRgb(255,236,196);
+    ui->dry_color->setStyleSheet(QString("background-color: %1").arg(dry_color.name()));
+    W_pen_color.setRgb(0,0,0);
+    ui->W_pen_color->setStyleSheet(QString("color: %1").arg(W_pen_color.name()));
 
     /*
     QVBoxLayout *vlayout = new QVBoxLayout(); // 新建垂直布局
@@ -54,6 +63,53 @@ GMT_pscoast::~GMT_pscoast()
 
 void GMT_pscoast::on_sea_color_clicked()
 {
-    QColorDialog *m_pColor = new QColorDialog(this);
-    m_pColor->show();
+    QColor tmpcolor = QColorDialog::getColor(sea_color, this,
+                                             "选择水系（海洋与湖泊）的颜色",
+                                             QColorDialog::ShowAlphaChannel);
+    if (tmpcolor.isValid()){
+        sea_color = tmpcolor;
+        ui->sea_color->setStyleSheet(QString("background-color: %1").arg(sea_color.name()));
+    }
+}
+
+void GMT_pscoast::on_dry_color_clicked()
+{
+    QColor tmpcolor = QColorDialog::getColor(dry_color, this,
+                                             "选择陆地的颜色",
+                                             QColorDialog::ShowAlphaChannel);
+    if (tmpcolor.isValid()){
+        dry_color = tmpcolor;
+        ui->dry_color->setStyleSheet(QString("background-color: %1").arg(dry_color.name()));
+    }
+}
+
+void GMT_pscoast::on_W_pen_color_clicked()
+{
+    QColor tmpcolor = QColorDialog::getColor(W_pen_color, this,
+                                             "选择海岸线的颜色",
+                                             QColorDialog::ShowAlphaChannel);
+    if (tmpcolor.isValid()){
+        W_pen_color = tmpcolor;
+        ui->W_pen_color->setStyleSheet(QString("color: %1").arg(W_pen_color.name()));
+    }
+}
+
+void GMT_pscoast::on_bok_clicked()
+{
+
+    gmt_cmd = "gmt pscoast -O -K ";
+    gmt_cmd += J_option->sendData()+" ";
+    gmt_cmd += R_option->sendData()+" ";
+    gmt_cmd += B_option->sendData()+" ";
+
+
+    // 关闭窗口
+    this->close();
+}
+
+void GMT_pscoast::on_bexit_clicked()
+{
+    gmt_cmd = ""; // 清空
+    // 关闭窗口
+    this->close();
 }

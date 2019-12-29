@@ -26,28 +26,16 @@ void GMT_B_option::on_all_axes_stateChanged(int arg1)
     ui->n_axes->setEnabled(flag);
     ui->annotation_w->setEnabled(flag);
     ui->annotation_s->setEnabled(flag);
-    ui->annotation_n->setEnabled(flag);
-    ui->annotation_e->setEnabled(flag);
     ui->a_stride_w->setEnabled(flag);
     ui->a_stride_s->setEnabled(flag);
-    ui->a_stride_n->setEnabled(flag);
-    ui->a_stride_e->setEnabled(flag);
     ui->frame_w->setEnabled(flag);
     ui->frame_s->setEnabled(flag);
-    ui->frame_n->setEnabled(flag);
-    ui->frame_e->setEnabled(flag);
     ui->f_stride_w->setEnabled(flag);
-    ui->f_stride_e->setEnabled(flag);
     ui->f_stride_s->setEnabled(flag);
-    ui->f_stride_n->setEnabled(flag);
     ui->grid_w->setEnabled(flag);
     ui->grid_s->setEnabled(flag);
-    ui->grid_e->setEnabled(flag);
-    ui->grid_n->setEnabled(flag);
     ui->g_stride_w->setEnabled(flag);
     ui->g_stride_s->setEnabled(flag);
-    ui->g_stride_e->setEnabled(flag);
-    ui->g_stride_n->setEnabled(flag);
 
     ui->annotation->setEnabled(!flag);
     ui->frame->setEnabled(!flag);
@@ -63,28 +51,16 @@ void GMT_B_option::on_all_axes_stateChanged(int arg1)
         ui->e_axes->setChecked(true);
         ui->annotation_w->setChecked(ui->annotation->isChecked());
         ui->annotation_s->setChecked(ui->annotation->isChecked());
-        ui->annotation_n->setChecked(ui->annotation->isChecked());
-        ui->annotation_e->setChecked(ui->annotation->isChecked());
         ui->frame_w->setChecked(ui->frame->isChecked());
         ui->frame_s->setChecked(ui->frame->isChecked());
-        ui->frame_n->setChecked(ui->frame->isChecked());
-        ui->frame_e->setChecked(ui->frame->isChecked());
         ui->grid_w->setChecked(ui->grid->isChecked());
         ui->grid_s->setChecked(ui->grid->isChecked());
-        ui->grid_n->setChecked(ui->grid->isChecked());
-        ui->grid_e->setChecked(ui->grid->isChecked());
         ui->a_stride_w->setText(ui->a_stride->text());
         ui->a_stride_s->setText(ui->a_stride->text());
-        ui->a_stride_n->setText(ui->a_stride->text());
-        ui->a_stride_e->setText(ui->a_stride->text());
         ui->f_stride_w->setText(ui->f_stride->text());
         ui->f_stride_s->setText(ui->f_stride->text());
-        ui->f_stride_n->setText(ui->f_stride->text());
-        ui->f_stride_e->setText(ui->f_stride->text());
         ui->g_stride_w->setText(ui->g_stride->text());
         ui->g_stride_s->setText(ui->g_stride->text());
-        ui->g_stride_n->setText(ui->g_stride->text());
-        ui->g_stride_e->setText(ui->g_stride->text());
     }else{
 
     }
@@ -171,60 +147,6 @@ void GMT_B_option::on_grid_s_stateChanged(int arg1)
     }
 }
 
-void GMT_B_option::on_annotation_e_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->a_stride_e->setText("0");
-    }else{
-        ui->a_stride_e->clear();
-    }
-}
-
-void GMT_B_option::on_frame_e_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->f_stride_e->setText("0");
-    }else{
-        ui->f_stride_e->clear();
-    }
-}
-
-void GMT_B_option::on_grid_e_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->g_stride_e->setText("0");
-    }else{
-        ui->g_stride_e->clear();
-    }
-}
-
-void GMT_B_option::on_annotation_n_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->a_stride_n->setText("0");
-    }else{
-        ui->a_stride_n->clear();
-    }
-}
-
-void GMT_B_option::on_frame_n_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->f_stride_n->setText("0");
-    }else{
-        ui->f_stride_n->clear();
-    }
-}
-
-void GMT_B_option::on_grid_n_stateChanged(int arg1)
-{
-    if (arg1 == 0){
-        ui->g_stride_n->setText("0");
-    }else{
-        ui->g_stride_n->clear();
-    }
-}
-
 void GMT_B_option::on_all_disable_stateChanged(int arg1)
 {
     bool flag = true;
@@ -243,28 +165,16 @@ void GMT_B_option::on_all_disable_stateChanged(int arg1)
     ui->n_axes->setEnabled(flag);
     ui->annotation_w->setEnabled(flag);
     ui->annotation_s->setEnabled(flag);
-    ui->annotation_n->setEnabled(flag);
-    ui->annotation_e->setEnabled(flag);
     ui->a_stride_w->setEnabled(flag);
     ui->a_stride_s->setEnabled(flag);
-    ui->a_stride_n->setEnabled(flag);
-    ui->a_stride_e->setEnabled(flag);
     ui->frame_w->setEnabled(flag);
     ui->frame_s->setEnabled(flag);
-    ui->frame_n->setEnabled(flag);
-    ui->frame_e->setEnabled(flag);
     ui->f_stride_w->setEnabled(flag);
-    ui->f_stride_e->setEnabled(flag);
     ui->f_stride_s->setEnabled(flag);
-    ui->f_stride_n->setEnabled(flag);
     ui->grid_w->setEnabled(flag);
     ui->grid_s->setEnabled(flag);
-    ui->grid_e->setEnabled(flag);
-    ui->grid_n->setEnabled(flag);
     ui->g_stride_w->setEnabled(flag);
     ui->g_stride_s->setEnabled(flag);
-    ui->g_stride_e->setEnabled(flag);
-    ui->g_stride_n->setEnabled(flag);
 
     if (arg1 ==2) return;
 
@@ -275,4 +185,46 @@ void GMT_B_option::on_all_disable_stateChanged(int arg1)
         cc = 0;
     }
     GMT_B_option::on_all_axes_stateChanged(cc);
+}
+
+QString GMT_B_option::sendData(){
+    QString s = "";
+    if (ui->all_disable->isChecked()){
+        return s;
+    }
+    if (ui->all_axes->isChecked()){
+        s = "-BWSNE -B";
+        if (ui->annotation->isChecked())
+            s += "a"+ui->a_stride->text();
+        if (ui->frame->isChecked())
+            s += "f"+ui->f_stride->text();
+        if (ui->grid->isChecked())
+            s += "g"+ui->g_stride->text();
+        return s;
+    }
+    s = "-B";
+    if (ui->w_axes->isChecked())
+        s += "W";
+    if (ui->s_axes->isChecked())
+        s += "S";
+    if (ui->n_axes->isChecked())
+        s += "N";
+    if (ui->e_axes->isChecked())
+        s += "E";
+    s += " -Bx";
+    if (ui->annotation_w->isChecked())
+        s += "a"+ui->a_stride_w->text();
+    if (ui->frame_w->isChecked())
+        s += "f"+ui->f_stride_w->text();
+    if (ui->grid_w->isChecked())
+        s += "g"+ui->g_stride_w->text();
+    s += " -By";
+    if (ui->annotation_s->isChecked())
+        s += "a"+ui->a_stride_s->text();
+    if (ui->frame_s->isChecked())
+        s += "f"+ui->f_stride_s->text();
+    if (ui->grid_s->isChecked())
+        s += "g"+ui->g_stride_s->text();
+
+    return s;
 }
