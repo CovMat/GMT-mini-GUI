@@ -62,7 +62,7 @@
   <widget class="QPushButton" name="ok_button">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>150</x>
      <y>270</y>
      <width>80</width>
      <height>20</height>

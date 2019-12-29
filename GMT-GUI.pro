@@ -17,8 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Run_GMT_CMD.cpp \
+    gmt_b_option.cpp \
     gmt_j_option.cpp \
     gmt_pscoast.cpp \
+    gmt_r_option.cpp \
     main.cpp \
     mainwindow.cpp \
     new_ps_file.cpp \
@@ -26,15 +28,19 @@ SOURCES += \
 
 HEADERS += \
     Run_GMT_CMD.h \
+    gmt_b_option.h \
     gmt_j_option.h \
     gmt_pscoast.h \
+    gmt_r_option.h \
     mainwindow.h \
     new_ps_file.h \
     waiting_thread.h
 
 FORMS += \
+    gmt_b_option.ui \
     gmt_j_option.ui \
     gmt_pscoast.ui \
+    gmt_r_option.ui \
     mainwindow.ui \
     new_ps_file.ui \
     waiting_thread.ui

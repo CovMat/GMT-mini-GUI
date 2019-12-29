@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GMT_B_option</class>
+ <widget class="QWidget" name="GMT_B_option">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>362</width>
+    <height>171</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGroupBox" name="B">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>361</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>-B选项</string>
+   </property>
+   <widget class="QLineEdit" name="a_stride_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>107</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="a_stride_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>147</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="e_axes">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>127</y>
+      <width>71</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制E边</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="frame_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>163</x>
+      <y>87</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制f</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="g_stride">
+    <property name="geometry">
+     <rect>
+      <x>243</x>
+      <y>57</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>网格间隔,留空自动</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="n_axes">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>147</y>
+      <width>71</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制N边</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="grid">
+    <property name="geometry">
+     <rect>
+      <x>243</x>
+      <y>37</y>
+      <width>76</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制网格</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="g_stride_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>303</x>
+      <y>147</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="s_axes">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>107</y>
+      <width>71</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制S边</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="f_stride_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>213</x>
+      <y>107</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="a_stride_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>127</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="grid_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>253</x>
+      <y>127</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制g</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="f_stride_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>213</x>
+      <y>147</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="a_stride">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>57</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>标注间隔,留空自动</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="annotation">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>37</y>
+      <width>91</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制标注(a)</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="annotation_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>73</x>
+      <y>107</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制a</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="annotation_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>73</x>
+      <y>127</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制a</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="a_stride_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>87</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="frame_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>163</x>
+      <y>147</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制f</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="f_stride_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>213</x>
+      <y>127</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="g_stride_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>303</x>
+      <y>127</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="grid_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>253</x>
+      <y>107</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制g</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="g_stride_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>303</x>
+      <y>87</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="g_stride_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>303</x>
+      <y>107</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="grid_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>253</x>
+      <y>147</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制g</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="annotation_n">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>73</x>
+      <y>147</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制a</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="frame_e">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>163</x>
+      <y>127</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制f</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="all_axes">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>17</y>
+      <width>181</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>同时设置并绘制四条边框</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="annotation_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>73</x>
+      <y>87</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制a</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>37</y>
+      <width>81</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制刻度(f)</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>77</y>
+      <width>351</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="f_stride">
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>57</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>刻度间隔,留空自动</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="grid_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>253</x>
+      <y>87</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制g</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="f_stride_w">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>213</x>
+      <y>87</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>间隔</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="frame_s">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>163</x>
+      <y>107</y>
+      <width>51</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制f</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="w_axes">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>87</y>
+      <width>71</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>绘制W边</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="all_disable">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>-1</y>
+      <width>111</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>不绘制所有边框</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>all_disable</tabstop>
+  <tabstop>all_axes</tabstop>
+  <tabstop>annotation</tabstop>
+  <tabstop>a_stride</tabstop>
+  <tabstop>frame</tabstop>
+  <tabstop>f_stride</tabstop>
+  <tabstop>grid</tabstop>
+  <tabstop>g_stride</tabstop>
+  <tabstop>w_axes</tabstop>
+  <tabstop>annotation_w</tabstop>
+  <tabstop>a_stride_w</tabstop>
+  <tabstop>frame_w</tabstop>
+  <tabstop>f_stride_w</tabstop>
+  <tabstop>grid_w</tabstop>
+  <tabstop>g_stride_w</tabstop>
+  <tabstop>s_axes</tabstop>
+  <tabstop>annotation_s</tabstop>
+  <tabstop>a_stride_s</tabstop>
+  <tabstop>frame_s</tabstop>
+  <tabstop>f_stride_s</tabstop>
+  <tabstop>grid_s</tabstop>
+  <tabstop>g_stride_s</tabstop>
+  <tabstop>e_axes</tabstop>
+  <tabstop>annotation_e</tabstop>
+  <tabstop>a_stride_e</tabstop>
+  <tabstop>frame_e</tabstop>
+  <tabstop>f_stride_e</tabstop>
+  <tabstop>grid_e</tabstop>
+  <tabstop>g_stride_e</tabstop>
+  <tabstop>n_axes</tabstop>
+  <tabstop>annotation_n</tabstop>
+  <tabstop>a_stride_n</tabstop>
+  <tabstop>frame_n</tabstop>
+  <tabstop>f_stride_n</tabstop>
+  <tabstop>grid_n</tabstop>
+  <tabstop>g_stride_n</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

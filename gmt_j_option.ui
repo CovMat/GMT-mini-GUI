@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>349</width>
-    <height>93</height>
+    <width>411</width>
+    <height>22</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,20 @@
   <widget class="QComboBox" name="J_option">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>72</width>
+     <x>0</x>
+     <y>0</y>
+     <width>171</width>
      <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="paras">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>0</y>
+     <width>231</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
