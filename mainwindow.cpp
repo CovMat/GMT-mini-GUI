@@ -153,7 +153,7 @@ void MainWindow::on_undo_clicked()
 {
     if (cmd_num<=1)
         return;
-    ui->cmd_list->item(cmd_num-1)->setForeground(QColor(210,210,210));
+    ui->cmd_list->item(cmd_num-1)->setForeground(QColor(210,210,210,255));
     cmd_num--;
     // 将各个绘图按钮无效化
     set_gmt_button_enable(false);
@@ -167,7 +167,7 @@ void MainWindow::on_redo_clicked()
         return;
     if (cmd_num == ui->cmd_list->count()) // 如果已经恢复到头了，就退出
         return;
-    ui->cmd_list->item(cmd_num)->setForeground(QColor(0,0,0));
+    ui->cmd_list->item(cmd_num)->setForeground(QColor(0,0,0,255));
     cmd_num++;
     // 如果全部命令都已经恢复，则各个绘图按钮有效化,将确认按钮无效化
     if (cmd_num == ui->cmd_list->count()){
