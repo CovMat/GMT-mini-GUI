@@ -3,15 +3,14 @@
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QPushButton>
 
-GMT_pscoast::GMT_pscoast(QWidget *parent,QString S) :
-    QDialog(parent),
-    psfname(S),
+GMT_pscoast::GMT_pscoast(QWidget *parent,QString S) : //传入参数
+    QDialog(parent,Qt::WindowTitleHint | Qt::CustomizeWindowHint), // 隐藏关闭按钮和帮助按钮
+    psfname(S), // 传入参数赋值给ps文件名
     ui(new Ui::GMT_pscoast)
 {
     ui->setupUi(this);
-    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
+    //setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
 
     gmt_cmd = ""; // 清空初始化
 

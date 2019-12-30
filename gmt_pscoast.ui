@@ -167,27 +167,27 @@
    </item>
    <item>
     <property name="text">
-     <string>-Df full精度</string>
+     <string>-Dfull 精度</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>-Dh high精度</string>
+     <string>-Dhigh 精度</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>-Di intermediate精度</string>
+     <string>-Dintermediate 精度</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>-Dl low精度</string>
+     <string>-Dlow 精度</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>-Dc crude精度</string>
+     <string>-Dcrude 精度</string>
     </property>
    </item>
   </widget>

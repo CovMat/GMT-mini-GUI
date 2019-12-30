@@ -17,7 +17,7 @@ class GMT_pscoast : public QDialog
     Q_OBJECT
 
 public:
-    explicit GMT_pscoast(QWidget *parent,QString S);
+    explicit GMT_pscoast(QWidget *parent,QString S); // 传入参数
     ~GMT_pscoast();
     QString send_gmt_cmd(){return gmt_cmd;} // 定义函数，用于向主窗体返回GMT命令字符串
 

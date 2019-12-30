@@ -2,8 +2,12 @@
 #include "ui_mainwindow.h"
 
 #include <iostream>
+#include <fstream>
 #include <QString>
 #include <QColor>
+#include <QFile>
+#include <QDir>
+#include <QFileDialog>
 
 using namespace std;
 
@@ -15,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     psfname = ""; // 清空初始化ps文件文件名
     cmd_num = 0; // 命令数目清零
+
+    ui->label->setScaledContents(true); // label要设置为自动缩放内容
+
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +35,50 @@ void MainWindow::set_gmt_button_enable(bool flag){
     ui->psbasemap->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
+
+}
+
+// 自定义函数，用于将ps转化为png
+void MainWindow::convert2png(int flag){
+
+    //复制一份当前文件
+    QDir *createfile     = new QDir;
+    bool exist = createfile->exists(psfname+".tmp");
+    if (exist){
+            createfile->remove(psfname+".tmp");
+     }
+    if (!QFile::copy(psfname,psfname+".tmp")){
+        return;
+    }
+    // 结束图像
+    QString cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -O >> "+psfname+".tmp";
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    // 转换成png
+    cmd = "gmt psconvert "+psfname+".tmp -Tg -Ftmp.png";
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+
+}
+
+// 自定义函数，显示预览
+void MainWindow::display_preview(){
+    convert2png(0);
+
+    QPixmap pix("tmp.png");
+    int hp = pix.size().height();
+    int wp = pix.size().width();
+    int hh = 470;
+    int ww = 520;
+
+    if ( hp/wp > hh/ww )
+        ww = hh*wp/hp;
+    else
+        hh = hp*ww/wp;
+    ui->label->resize(ww,hh);
+    //QPixmap dest=pix.scaled(label->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+    // 注意不能使用QPixmap的等比例缩放，而要让label去适应pixmap的比例。因为实际使用发现使用前者会导致图片质量严重下降
+    ui->label->setPixmap(pix);
 
 }
 
@@ -51,6 +102,12 @@ void MainWindow::on_new_PS_file_clicked()
 
         // 将各个绘图按钮有效化
         set_gmt_button_enable(true);
+        // ps导出按钮有效化
+        ui->export_ps->setEnabled(true);
+        // 脚本导出按钮有效化
+        ui->export_cmd->setEnabled(true);
+        // 预览
+        display_preview();
     }
 }
 
@@ -69,6 +126,8 @@ void MainWindow::on_pscoast_clicked()
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
     }
 }
 
@@ -150,4 +209,51 @@ void MainWindow::on_undo_confirm_clicked()
     }
     // 将确认按钮无效化
     ui->undo_confirm->setEnabled(false);
+    // 预览
+    display_preview();
+}
+
+void MainWindow::on_psbasemap_clicked()
+{
+    GMT_psbasemap_ui = new GMT_psbasemap(this, psfname); // 将文件名传给psbasemap对话框
+    GMT_psbasemap_ui->exec();
+
+    QString cmd = GMT_psbasemap_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+}
+
+void MainWindow::on_export_ps_clicked()
+{
+    QString filename = QFileDialog::getSaveFileName(this,
+            tr("导出ps文件"),
+            psfname);
+    if (QFile::exists(filename)){
+        QFile::remove(filename);
+    }
+    QFile::copy(psfname,filename);
+}
+
+void MainWindow::on_export_cmd_clicked()
+{
+    QString filename = QFileDialog::getSaveFileName(this,
+            tr("导出绘图脚本"),
+            psfname+".txt");
+    std::ofstream out( filename.toUtf8().constData(), std::ios_base::binary | std::ios_base::out);
+    int i;
+    for( i = 0; i < ui->cmd_list->count(); i++ ){
+        QString qstr = ui->cmd_list->item(i)->text();
+        out << qstr.toUtf8().constData() << "\n";
+    }
+    out.close();
 }
