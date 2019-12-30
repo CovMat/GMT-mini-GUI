@@ -14,7 +14,7 @@ class GMT_B_option : public QWidget
 public:
     explicit GMT_B_option(QWidget *parent = nullptr);
     ~GMT_B_option();
-    QString sendData();
+    QString sendData(); // 向父窗口返回参数字符串
 
 private slots:
     void on_all_axes_stateChanged(int arg1);

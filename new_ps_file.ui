@@ -16,47 +16,53 @@
   <widget class="QLabel" name="w">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>50</width>
-     <height>12</height>
+     <x>17</x>
+     <y>41</y>
+     <width>61</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>宽度(cm)</string>
+    <string>宽度(inch)</string>
    </property>
   </widget>
   <widget class="QLabel" name="h">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>50</width>
-     <height>12</height>
+     <x>17</x>
+     <y>70</y>
+     <width>61</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>高度(cm)</string>
+    <string>高度(inch)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="w_input">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>20</y>
+     <y>40</y>
      <width>61</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="placeholderText">
+    <string>输入数字</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="h_input">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>50</y>
+     <y>70</y>
      <width>61</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="placeholderText">
+    <string>输入数字</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ok_button">
@@ -72,7 +78,91 @@
     <string>确定</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>191</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;按TAB键可在各选项间快速切换&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>177</x>
+     <y>40</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PS文件名：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ps_fname">
+   <property name="geometry">
+    <rect>
+     <x>237</x>
+     <y>40</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>40</y>
+     <width>20</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>.ps</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>133</x>
+     <y>42</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;i&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>133</x>
+     <y>70</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;i&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>w_input</tabstop>
+  <tabstop>h_input</tabstop>
+  <tabstop>ps_fname</tabstop>
+  <tabstop>ok_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

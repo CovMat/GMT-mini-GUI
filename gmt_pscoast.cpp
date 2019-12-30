@@ -5,8 +5,9 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 
-GMT_pscoast::GMT_pscoast(QWidget *parent) :
+GMT_pscoast::GMT_pscoast(QWidget *parent,QString S) :
     QDialog(parent),
+    psfname(S),
     ui(new Ui::GMT_pscoast)
 {
     ui->setupUi(this);
@@ -102,6 +103,21 @@ void GMT_pscoast::on_bok_clicked()
     gmt_cmd += R_option->sendData()+" ";
     gmt_cmd += B_option->sendData()+" ";
 
+    if (!ui->A_option->text().isEmpty())
+        gmt_cmd += "-A"+ui->A_option->text()+" ";
+
+    gmt_cmd += "-S"+QString::number(sea_color.red())+"/"+QString::number(sea_color.green())+"/"+QString::number(sea_color.blue())+" ";
+    gmt_cmd += "-G"+QString::number(dry_color.red())+"/"+QString::number(dry_color.green())+"/"+QString::number(dry_color.blue())+" ";
+    gmt_cmd += ui->D_option->currentText().split(' ').at(0)+" ";
+
+    if (!ui->W_pen_w->text().isEmpty()){
+        gmt_cmd += "-W"+ui->W_pen_w->text()+",";
+        gmt_cmd += QString::number(W_pen_color.red())+"/"+QString::number(W_pen_color.green())+"/"+QString::number(W_pen_color.blue())+" ";
+    }
+
+    gmt_cmd += ui->other_options->text()+" ";
+
+    gmt_cmd += ">> "+psfname;
 
     // 关闭窗口
     this->close();

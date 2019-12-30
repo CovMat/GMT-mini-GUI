@@ -12,6 +12,7 @@ new_ps_file::new_ps_file(QWidget *parent) :
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
 
     gmt_cmd = ""; // 清空初始化
+    psfilename = "";
 
     //限制只能输入正浮点数
     QRegExp regExp("^(?:[1-9]\\d*|0)?(?:\\.\\d+)?$");
@@ -43,11 +44,20 @@ void new_ps_file::on_ok_button_clicked()
         msgBox.exec();
         return;
     }
+    // 检查文件名
+    if ( ui->ps_fname->text().isEmpty() ){
+        QMessageBox msgBox;
+        msgBox.setText("文件名不可为空");
+        msgBox.exec();
+        return;
+    }
+
+    psfilename = ui->ps_fname->text()+".ps";
 
     //gmt_cmd = "gmt basemap -JX"+w_input+"c/"+h_input+"c -R0/"+w_input+"/0/"+h_input+" -B1/1 -P -K > tmp.ps";
     gmt_cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -P -K ";
-    gmt_cmd += "--PS_MEDIA="+w_input+"cx"+h_input+"c ";
-    gmt_cmd += "> tmp.ps";
+    gmt_cmd += "--PS_MEDIA="+w_input+"ix"+h_input+"i ";
+    gmt_cmd += "> "+psfilename;
 
     // 关闭窗口
     this->close();

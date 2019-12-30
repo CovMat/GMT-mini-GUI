@@ -16,7 +16,7 @@ class GMT_R_option : public QWidget
 public:
     explicit GMT_R_option(QWidget *parent = nullptr);
     ~GMT_R_option();
-    QString sendData();
+    QString sendData(); // 向父窗口返回参数字符串
 
 private slots:
     void on_open_url_clicked();

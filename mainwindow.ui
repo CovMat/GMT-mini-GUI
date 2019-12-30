@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>30</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -31,18 +31,21 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>90</y>
       <width>361</width>
       <height>471</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pscoast">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
-      <width>80</width>
+      <y>60</y>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -50,18 +53,94 @@
      <string>pscoast</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="endps">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>570</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-O 结束ps图片</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>4</y>
+      <width>321</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>撤销操作需要点击“有效化”后才能生效</string>
+    </property>
+    <widget class="QPushButton" name="redo">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>24</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>恢复最后一条命令</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="undo">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>24</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>撤销最后一条命令</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="undo_confirm">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>24</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>有效化</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="psbasemap">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>60</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>psbasemap</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
