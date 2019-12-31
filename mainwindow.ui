@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>941</width>
-    <height>600</height>
+    <width>913</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>20</x>
       <y>30</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
+      <y>110</y>
       <width>361</width>
       <height>471</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>80</y>
       <width>81</width>
       <height>20</height>
      </rect>
@@ -59,9 +59,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>570</y>
-      <width>91</width>
+      <x>530</x>
+      <y>590</y>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
@@ -74,8 +74,8 @@
      <rect>
       <x>120</x>
       <y>4</y>
-      <width>321</width>
-      <height>51</height>
+      <width>381</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -84,9 +84,9 @@
     <widget class="QPushButton" name="redo">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>24</y>
-       <width>111</width>
+       <x>150</x>
+       <y>30</y>
+       <width>131</width>
        <height>20</height>
       </rect>
      </property>
@@ -98,8 +98,8 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>24</y>
-       <width>111</width>
+       <y>30</y>
+       <width>131</width>
        <height>20</height>
       </rect>
      </property>
@@ -113,9 +113,9 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>24</y>
-       <width>61</width>
+       <x>290</x>
+       <y>30</y>
+       <width>81</width>
        <height>20</height>
       </rect>
      </property>
@@ -131,7 +131,7 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>60</y>
+      <y>80</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -144,10 +144,13 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>90</y>
+      <y>110</y>
       <width>521</width>
       <height>471</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid rgb(0, 0, 0);</string>
     </property>
     <property name="text">
      <string/>
@@ -159,10 +162,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>28</y>
+      <x>520</x>
+      <y>30</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -175,14 +178,30 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>570</y>
-      <width>91</width>
+      <x>120</x>
+      <y>590</y>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>导出绘图脚本</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="psxy">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>80</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>psxy</string>
     </property>
    </widget>
   </widget>

@@ -33,6 +33,7 @@ MainWindow::~MainWindow()
 void MainWindow::set_gmt_button_enable(bool flag){
     ui->pscoast->setEnabled(flag);
     ui->psbasemap->setEnabled(flag);
+    ui->psxy->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
 
@@ -106,26 +107,6 @@ void MainWindow::on_new_PS_file_clicked()
         ui->export_ps->setEnabled(true);
         // 脚本导出按钮有效化
         ui->export_cmd->setEnabled(true);
-        // 预览
-        display_preview();
-    }
-}
-
-void MainWindow::on_pscoast_clicked()
-{
-    GMT_pscoast_ui = new GMT_pscoast(this, psfname); // 将文件名传给pscoast对话框
-    GMT_pscoast_ui->exec();
-
-    QString cmd = GMT_pscoast_ui->send_gmt_cmd();
-
-    if (cmd.isEmpty())
-        return;
-
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
-    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
-    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
-        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
-        cmd_num++; //命令个数+1
         // 预览
         display_preview();
     }
@@ -213,12 +194,52 @@ void MainWindow::on_undo_confirm_clicked()
     display_preview();
 }
 
+void MainWindow::on_pscoast_clicked()
+{
+    GMT_pscoast_ui = new GMT_pscoast(this, psfname); // 将文件名传给pscoast对话框
+    GMT_pscoast_ui->exec();
+
+    QString cmd = GMT_pscoast_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+}
+
 void MainWindow::on_psbasemap_clicked()
 {
     GMT_psbasemap_ui = new GMT_psbasemap(this, psfname); // 将文件名传给psbasemap对话框
     GMT_psbasemap_ui->exec();
 
     QString cmd = GMT_psbasemap_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+}
+
+void MainWindow::on_psxy_clicked()
+{
+    GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psbasemap对话框
+    GMT_psxy_ui->exec();
+
+    QString cmd = GMT_psxy_ui->send_gmt_cmd();
 
     if (cmd.isEmpty())
         return;
@@ -257,3 +278,5 @@ void MainWindow::on_export_cmd_clicked()
     }
     out.close();
 }
+
+
