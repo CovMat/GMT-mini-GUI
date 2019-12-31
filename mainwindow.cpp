@@ -54,7 +54,7 @@ void MainWindow::convert2png(int flag){
         return;
     }
     // 结束图像
-    QString cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -O >> "+psfname+".tmp";
+    QString cmd = "gmt psxy -J -R -T -O >> "+psfname+".tmp";
     waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     // 转换成png
@@ -116,7 +116,7 @@ void MainWindow::on_new_PS_file_clicked()
 
 void MainWindow::on_endps_clicked()
 {
-    QString cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -O >> "+psfname;
+    QString cmd = "gmt psxy -J -R -T -O >> "+psfname;
     waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){
