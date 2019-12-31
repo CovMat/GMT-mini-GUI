@@ -9,6 +9,7 @@ GMT_psxy::GMT_psxy(QWidget *parent,QString S) : //传入参数
     ui(new Ui::GMT_psxy)
 {
     ui->setupUi(this);
+    this->setWindowTitle("psxy");
 
     gmt_cmd = ""; // 清空初始化
 

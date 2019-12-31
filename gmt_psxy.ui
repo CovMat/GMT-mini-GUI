@@ -347,6 +347,21 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>g_color</tabstop>
+  <tabstop>W_pen_w</tabstop>
+  <tabstop>W_pen_color</tabstop>
+  <tabstop>draw_symbol</tabstop>
+  <tabstop>S_option</tabstop>
+  <tabstop>size</tabstop>
+  <tabstop>draw_line</tabstop>
+  <tabstop>L_option</tabstop>
+  <tabstop>b_datafile</tabstop>
+  <tabstop>other_options</tabstop>
+  <tabstop>bok</tabstop>
+  <tabstop>bexit</tabstop>
+  <tabstop>datafile</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

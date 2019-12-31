@@ -204,6 +204,22 @@
      <string>psxy</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pssac">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>80</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>pssac</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

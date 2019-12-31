@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("GMT-mini-GUI beta 0.0.1");
 
     psfname = ""; // 清空初始化ps文件文件名
     cmd_num = 0; // 命令数目清零
@@ -34,6 +35,7 @@ void MainWindow::set_gmt_button_enable(bool flag){
     ui->pscoast->setEnabled(flag);
     ui->psbasemap->setEnabled(flag);
     ui->psxy->setEnabled(flag);
+    ui->pssac->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
 
@@ -236,10 +238,30 @@ void MainWindow::on_psbasemap_clicked()
 
 void MainWindow::on_psxy_clicked()
 {
-    GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psbasemap对话框
+    GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psxy对话框
     GMT_psxy_ui->exec();
 
     QString cmd = GMT_psxy_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+}
+
+void MainWindow::on_pssac_clicked()
+{
+    GMT_pssac_ui = new GMT_pssac(this, psfname); // 将文件名传给pssac对话框
+    GMT_pssac_ui->exec();
+
+    QString cmd = GMT_pssac_ui->send_gmt_cmd();
 
     if (cmd.isEmpty())
         return;
@@ -278,5 +300,3 @@ void MainWindow::on_export_cmd_clicked()
     }
     out.close();
 }
-
-

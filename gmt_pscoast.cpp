@@ -11,6 +11,7 @@ GMT_pscoast::GMT_pscoast(QWidget *parent,QString S) : //传入参数
 {
     ui->setupUi(this);
     //setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint); // 去除问号帮助按钮
+    this->setWindowTitle("pscoast");
 
     gmt_cmd = ""; // 清空初始化
 

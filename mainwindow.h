@@ -9,6 +9,7 @@
 #include "gmt_pscoast.h"
 #include "gmt_psbasemap.h"
 #include "gmt_psxy.h"
+#include "gmt_pssac.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +44,8 @@ private slots:
 
     void on_psxy_clicked();
 
+    void on_pssac_clicked();
+
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
     void convert2png(int); // 用于生成png文件进行预览
@@ -57,5 +60,6 @@ private:
     GMT_pscoast *GMT_pscoast_ui;
     GMT_psbasemap *GMT_psbasemap_ui;
     GMT_psxy *GMT_psxy_ui;
+    GMT_pssac *GMT_pssac_ui;
 };
 #endif // MAINWINDOW_H
