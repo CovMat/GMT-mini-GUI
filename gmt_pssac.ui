@@ -400,6 +400,24 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>use_sac</tabstop>
+  <tabstop>choose_sac</tabstop>
+  <tabstop>sacfiles</tabstop>
+  <tabstop>use_list</tabstop>
+  <tabstop>choose_list</tabstop>
+  <tabstop>saclist</tabstop>
+  <tabstop>c1</tabstop>
+  <tabstop>c2</tabstop>
+  <tabstop>d1</tabstop>
+  <tabstop>d2</tabstop>
+  <tabstop>e</tabstop>
+  <tabstop>W_pen_w</tabstop>
+  <tabstop>W_pen_color</tabstop>
+  <tabstop>other_options</tabstop>
+  <tabstop>bok</tabstop>
+  <tabstop>bexit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

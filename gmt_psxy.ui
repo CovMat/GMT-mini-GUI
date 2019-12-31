@@ -357,10 +357,10 @@
   <tabstop>draw_line</tabstop>
   <tabstop>L_option</tabstop>
   <tabstop>b_datafile</tabstop>
+  <tabstop>datafile</tabstop>
   <tabstop>other_options</tabstop>
   <tabstop>bok</tabstop>
   <tabstop>bexit</tabstop>
-  <tabstop>datafile</tabstop>
  </tabstops>
  <resources/>
  <connections/>
