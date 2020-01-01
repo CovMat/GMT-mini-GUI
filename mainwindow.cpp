@@ -36,6 +36,7 @@ void MainWindow::set_gmt_button_enable(bool flag){
     ui->psbasemap->setEnabled(flag);
     ui->psxy->setEnabled(flag);
     ui->pssac->setEnabled(flag);
+    ui->pstext->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
 
@@ -95,6 +96,11 @@ void MainWindow::on_new_PS_file_clicked()
     if (cmd.isEmpty())
         return;
 
+    // 删除gmt.history文件
+    if (QFile::exists("gmt.history")){
+        QFile::remove("gmt.history");
+    }
+
     waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
@@ -102,6 +108,8 @@ void MainWindow::on_new_PS_file_clicked()
         ui->cmd_list->addItem(cmd); // 将第一条命令添加到列表中
         cmd_num = 1; //命令初始化
         psfname = new_ps_file_ui->send_ps_fname(); // 获取文件名
+        image_w = new_ps_file_ui->send_w().toFloat(); // 获取图片大小，单位英寸
+        image_h = new_ps_file_ui->send_h().toFloat();
 
         // 将各个绘图按钮有效化
         set_gmt_button_enable(true);
@@ -161,6 +169,11 @@ void MainWindow::on_redo_clicked()
 
 void MainWindow::on_undo_confirm_clicked()
 {
+    // 删除gmt.history文件
+    if (QFile::exists("gmt.history")){
+        QFile::remove("gmt.history");
+    }
+
     // 保存第 0 ~ cmd_num-1 条命令
     QString tmp_list[1024];
     int i;
@@ -262,6 +275,26 @@ void MainWindow::on_pssac_clicked()
     GMT_pssac_ui->exec();
 
     QString cmd = GMT_pssac_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+}
+
+void MainWindow::on_pstext_clicked()
+{
+    GMT_pstext_ui = new GMT_pstext(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给pstext对话框
+    GMT_pstext_ui->exec();
+
+    QString cmd = GMT_pstext_ui->send_gmt_cmd();
 
     if (cmd.isEmpty())
         return;

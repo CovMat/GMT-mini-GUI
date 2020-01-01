@@ -54,6 +54,8 @@ void new_ps_file::on_ok_button_clicked()
     }
 
     psfilename = ui->ps_fname->text()+".ps";
+    w = w_input;
+    h = h_input;
 
     //gmt_cmd = "gmt basemap -JX"+w_input+"c/"+h_input+"c -R0/"+w_input+"/0/"+h_input+" -B1/1 -P -K > tmp.ps";
     gmt_cmd = "gmt psxy -JX1/1 -R0/1/0/1 -T -P -K ";

@@ -10,6 +10,7 @@
 #include "gmt_psbasemap.h"
 #include "gmt_psxy.h"
 #include "gmt_pssac.h"
+#include "gmt_pstext.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,6 +47,8 @@ private slots:
 
     void on_pssac_clicked();
 
+    void on_pstext_clicked();
+
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
     void convert2png(int); // 用于生成png文件进行预览
@@ -55,11 +58,14 @@ private:
     Ui::MainWindow *ui;
     QString psfname; // ps文件文件名
     int cmd_num; // 记录当前的命令数目
+    float image_w; // 记录图片的大小
+    float image_h;
     new_ps_file *new_ps_file_ui; //创建类的指针，私有变量，新建画布对话框的类
     waiting_thread *waiting_thread_ui; // 创建类的指针，私有变量，等待GMT绘图线程运行对话框的类
     GMT_pscoast *GMT_pscoast_ui;
     GMT_psbasemap *GMT_psbasemap_ui;
     GMT_psxy *GMT_psxy_ui;
     GMT_pssac *GMT_pssac_ui;
+    GMT_pstext *GMT_pstext_ui;
 };
 #endif // MAINWINDOW_H

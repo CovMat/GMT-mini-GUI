@@ -22,6 +22,7 @@ SOURCES += \
     gmt_psbasemap.cpp \
     gmt_pscoast.cpp \
     gmt_pssac.cpp \
+    gmt_pstext.cpp \
     gmt_psxy.cpp \
     gmt_r_option.cpp \
     main.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     gmt_psbasemap.h \
     gmt_pscoast.h \
     gmt_pssac.h \
+    gmt_pstext.h \
     gmt_psxy.h \
     gmt_r_option.h \
     mainwindow.h \
@@ -48,6 +50,7 @@ FORMS += \
     gmt_psbasemap.ui \
     gmt_pscoast.ui \
     gmt_pssac.ui \
+    gmt_pstext.ui \
     gmt_psxy.ui \
     gmt_r_option.ui \
     mainwindow.ui \
