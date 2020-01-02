@@ -329,6 +329,20 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>position</tabstop>
+  <tabstop>usertext</tabstop>
+  <tabstop>font</tabstop>
+  <tabstop>checkfont</tabstop>
+  <tabstop>size</tabstop>
+  <tabstop>text_color</tabstop>
+  <tabstop>angle</tabstop>
+  <tabstop>justify</tabstop>
+  <tabstop>check_justify</tabstop>
+  <tabstop>other_options</tabstop>
+  <tabstop>bok</tabstop>
+  <tabstop>bexit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
