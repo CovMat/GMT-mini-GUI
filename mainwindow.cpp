@@ -333,3 +333,8 @@ void MainWindow::on_export_cmd_clicked()
     }
     out.close();
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl(QLatin1String("https://docs.gmt-china.org/5.4/")));
+}

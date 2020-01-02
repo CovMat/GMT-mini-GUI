@@ -236,6 +236,20 @@
      <string>pstext</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>809</x>
+      <y>30</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>访问GMT
+中文手册</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
