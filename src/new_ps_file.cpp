@@ -20,7 +20,7 @@ new_ps_file::new_ps_file(QWidget *parent) :
     QRegExpValidator *pattern= new QRegExpValidator(regExp, this);
     ui->w_input->setValidator(pattern);
     ui->h_input->setValidator(pattern);
-    delete pattern;
+    //delete pattern;
 }
 
 new_ps_file::~new_ps_file()

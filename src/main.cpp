@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QtGlobal>
 
 int main(int argc, char *argv[])
 {
@@ -8,5 +9,19 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
+    QFont font = a.font();
+    #if defined(Q_OS_WIN)
+        font.setPixelSize(10);//字体大小
+        font.setFamily("Microsoft YaHei");
+    #elif defined(Q_OS_MACOS)
+        font.setPixelSize(10);//字体大小
+        font.setFamily("PingFang SC");
+    #else
+        font.setPixelSize(10);//字体大小
+        font.setFamily("WenQuanYi Micro Hei");
+    #endif
+    a.setFont(font);
+
     return a.exec();
 }

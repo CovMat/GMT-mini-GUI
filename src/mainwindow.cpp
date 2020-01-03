@@ -135,13 +135,16 @@ void MainWindow::on_endps_clicked()
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
 
         // 将各个绘图按钮无效化
         set_gmt_button_enable(false);
+        /*
         // 三个撤销按钮无效化
         ui->undo->setEnabled(false);
         ui->redo->setEnabled(false);
         ui->undo_confirm->setEnabled(false);
+        */
     }
     delete waiting_thread_ui;
 }
