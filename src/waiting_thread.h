@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QThread>
+#include <QTimer>
 #include "Run_GMT_CMD.h" // 在本窗口中启动新线程，运行Run_GMT_CMD的代码
 
 namespace Ui {
@@ -21,6 +22,7 @@ public:
 private slots:
     void normally_exit();
     void on_stop_thread_clicked();
+    void updateUI();
 
 private:
     Ui::waiting_thread *ui;

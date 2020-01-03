@@ -20,6 +20,11 @@ waiting_thread::waiting_thread(QWidget *parent, QString S) :
     connect(firstThread,SIGNAL(started()),t,SLOT(dowork())); // 线程的启动信号，连接到工作代码的槽函数。这样线程启动的时候，就自动开始执行工作代码
     connect(t,SIGNAL(close_ready()),this,SLOT(normally_exit())); // 工作代码的结束信号，连接到本窗口的正常退出函数
     firstThread->start();
+
+    QTimer *timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateUI()));
+    timer->start(100);
+
 }
 
 waiting_thread::~waiting_thread()
@@ -50,4 +55,8 @@ void waiting_thread::on_stop_thread_clicked()
 
     exit_code = 1; // 强制终止
     this->close(); // 关闭窗口
+}
+
+void waiting_thread::updateUI(){
+    QCoreApplication::processEvents();//避免界面冻结
 }
