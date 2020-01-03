@@ -35,6 +35,8 @@ private slots:
 
     void on_bok_clicked();
 
+    void on_L_option_stateChanged(int arg1);
+
 private:
     Ui::GMT_psxy *ui;
     QString psfname;

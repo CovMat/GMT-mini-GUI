@@ -50,6 +50,7 @@ void GMT_psxy::on_draw_symbol_clicked()
         ui->L_option->setEnabled(false);
         ui->S_option->setEnabled(true);
         ui->size->setEnabled(true);
+        ui->g_color->setEnabled(true);
     }
 }
 
@@ -60,6 +61,19 @@ void GMT_psxy::on_draw_line_clicked()
         ui->S_option->setEnabled(false);
         ui->size->setEnabled(false);
         ui->L_option->setEnabled(true);
+        ui->g_color->setEnabled(false);
+        if (ui->L_option->isChecked()){
+            ui->g_color->setEnabled(true);
+        }
+    }
+}
+
+void GMT_psxy::on_L_option_stateChanged(int arg1)
+{
+    if (ui->L_option->isChecked()){
+        ui->g_color->setEnabled(true);
+    }else{
+        ui->g_color->setEnabled(false);
     }
 }
 
@@ -103,17 +117,18 @@ void GMT_psxy::on_bok_clicked()
     gmt_cmd = "gmt psxy -O -K ";
     gmt_cmd += J_option->sendData()+" ";
     gmt_cmd += R_option->sendData()+" ";
-    gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
     if (!ui->W_pen_w->text().isEmpty()){
         gmt_cmd += "-W"+ui->W_pen_w->text()+",";
         gmt_cmd += QString::number(W_pen_color.red())+"/"+QString::number(W_pen_color.green())+"/"+QString::number(W_pen_color.blue())+" ";
     }
     if (ui->draw_symbol->isChecked()){
+        gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
         gmt_cmd += ui->S_option->currentText().split(' ').at(0)+ui->size->text()+" ";
     }
     if (ui->draw_line->isChecked()){
         if (ui->L_option->isChecked()){
             gmt_cmd += "-L ";
+            gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
         }
     }
     gmt_cmd += ui->datafile->text()+" ";

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QString>
+#include "gmt_j_option.h"
+#include "gmt_r_option.h"
 
 namespace Ui {
 class new_ps_file;
@@ -23,12 +25,20 @@ public:
 private slots:
     void on_ok_button_clicked();
 
+    void on_w_input_textEdited();
+
+    void on_h_input_textEdited(const QString &arg1);
+
+    void on_bexit_clicked();
+
 private:
     Ui::new_ps_file *ui;
     QString gmt_cmd; // 向主窗体返回的变量，生成的GMT命令字符串
     QString psfilename; // 向主窗体返回ps文件的文件名
     QString w;
     QString h;
+    GMT_J_option * J_option;
+    GMT_R_option * R_option;
 };
 
 #endif // NEW_PS_FILE_H

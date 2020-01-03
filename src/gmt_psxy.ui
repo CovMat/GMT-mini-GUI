@@ -72,12 +72,12 @@
     <rect>
      <x>130</x>
      <y>150</y>
-     <width>101</width>
+     <width>311</width>
      <height>18</height>
     </rect>
    </property>
    <property name="text">
-    <string>-L 闭合多边形</string>
+    <string>-L 闭合多边形。本项未勾选时，-G对于画线段无效</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="draw_symbol">
