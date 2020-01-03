@@ -64,6 +64,7 @@ private:
     int cmd_num; // 记录当前的命令数目
     float image_w; // 记录图片的大小
     float image_h;
+    /*
     new_ps_file *new_ps_file_ui; //创建类的指针，私有变量，新建画布对话框的类
     waiting_thread *waiting_thread_ui; // 创建类的指针，私有变量，等待GMT绘图线程运行对话框的类
     GMT_pscoast *GMT_pscoast_ui;
@@ -71,5 +72,6 @@ private:
     GMT_psxy *GMT_psxy_ui;
     GMT_pssac *GMT_pssac_ui;
     GMT_pstext *GMT_pstext_ui;
+    */
 };
 #endif // MAINWINDOW_H

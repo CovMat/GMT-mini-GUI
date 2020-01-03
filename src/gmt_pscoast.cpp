@@ -120,6 +120,9 @@ void GMT_pscoast::on_bok_clicked()
     gmt_cmd += ">> "+psfname;
 
     // 关闭窗口
+    delete J_option;
+    delete R_option;
+    delete B_option;
     this->close();
 }
 
@@ -127,5 +130,8 @@ void GMT_pscoast::on_bexit_clicked()
 {
     gmt_cmd = ""; // 清空
     // 关闭窗口
+    delete J_option;
+    delete R_option;
+    delete B_option;
     this->close();
 }

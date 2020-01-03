@@ -21,7 +21,7 @@ waiting_thread::waiting_thread(QWidget *parent, QString S) :
     connect(t,SIGNAL(close_ready()),this,SLOT(normally_exit())); // 工作代码的结束信号，连接到本窗口的正常退出函数
     firstThread->start();
 
-    QTimer *timer = new QTimer();
+    timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(updateUI()));
     timer->start(100);
 
@@ -41,6 +41,9 @@ void waiting_thread::normally_exit()
         firstThread->wait();  //释放线程槽函数资源
     }
     exit_code = 0; // 正常退出
+    //delete firstThread; 似乎不需要手动释放， 上面已经释放了
+    //delete t;
+    delete timer;
     this->close(); // 关闭窗口
 }
 
@@ -54,6 +57,9 @@ void waiting_thread::on_stop_thread_clicked()
     }
 
     exit_code = 1; // 强制终止
+    //delete firstThread; 似乎不需要手动释放， 上面已经释放了
+    //delete t;
+    delete timer;
     this->close(); // 关闭窗口
 }
 

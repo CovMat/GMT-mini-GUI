@@ -30,6 +30,7 @@ private:
     int exit_code; // 向主窗口返回的变量，0代表正常运行退出，1代表异常终止
     QThread * firstThread; // 线程
     Run_GMT_CMD *t;        // 工作代码
+    QTimer *timer;
 };
 
 #endif // WAITING_THREAD_H

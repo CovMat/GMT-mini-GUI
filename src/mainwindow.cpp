@@ -56,13 +56,16 @@ void MainWindow::convert2png(int flag){
     }
     // 结束图像
     QString cmd = "gmt psxy -J -R -T -O >> "+psfname+".tmp";
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    delete waiting_thread_ui;
     // 转换成png
     cmd = "gmt psconvert "+psfname+".tmp -Tg -Ftmp.png";
     waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    delete waiting_thread_ui;
 
+    delete createfile;
 }
 
 // 自定义函数，显示预览
@@ -88,7 +91,7 @@ void MainWindow::display_preview(){
 
 void MainWindow::on_new_PS_file_clicked()
 {
-    new_ps_file_ui = new new_ps_file; //将类指针实例化
+    new_ps_file * new_ps_file_ui = new new_ps_file; //将类指针实例化
     new_ps_file_ui->exec(); //显示窗口， 阻塞方式
 
     QString cmd = new_ps_file_ui->send_gmt_cmd(); // 获取第一条命令，建立空白画布
@@ -101,7 +104,7 @@ void MainWindow::on_new_PS_file_clicked()
         QFile::remove("gmt.history");
     }
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->clear(); // 清除命令历史列表
@@ -120,12 +123,15 @@ void MainWindow::on_new_PS_file_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete new_ps_file_ui;
 }
 
 void MainWindow::on_endps_clicked()
 {
     QString cmd = "gmt psxy -J -R -T -O >> "+psfname;
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -137,7 +143,7 @@ void MainWindow::on_endps_clicked()
         ui->redo->setEnabled(false);
         ui->undo_confirm->setEnabled(false);
     }
-
+    delete waiting_thread_ui;
 }
 
 void MainWindow::on_undo_clicked()
@@ -185,14 +191,16 @@ void MainWindow::on_undo_confirm_clicked()
     // 重头开始执行
     int tmp_cmd_num = 0;
     for( i = 0; i < cmd_num; i++ ){
-        waiting_thread_ui = new waiting_thread(this, tmp_list[i]); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+        waiting_thread * waiting_thread_ui = new waiting_thread(this, tmp_list[i]); //将类指针实例化，创建对话框，同时将cmd传给新对话款
         waiting_thread_ui->exec(); //显示窗口， 阻塞方式
         if (waiting_thread_ui->send_exit_code() == 1 ) //如果中途中断，异常退出
         {
+            delete waiting_thread_ui;
             break;
         }
         ui->cmd_list->addItem(tmp_list[i]);
         tmp_cmd_num++;
+        delete waiting_thread_ui;
     }
     // 更新各个数据
     cmd_num = tmp_cmd_num;
@@ -211,7 +219,7 @@ void MainWindow::on_undo_confirm_clicked()
 
 void MainWindow::on_pscoast_clicked()
 {
-    GMT_pscoast_ui = new GMT_pscoast(this, psfname); // 将文件名传给pscoast对话框
+    GMT_pscoast * GMT_pscoast_ui = new GMT_pscoast(this, psfname); // 将文件名传给pscoast对话框
     GMT_pscoast_ui->exec();
 
     QString cmd = GMT_pscoast_ui->send_gmt_cmd();
@@ -219,7 +227,7 @@ void MainWindow::on_pscoast_clicked()
     if (cmd.isEmpty())
         return;
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -227,11 +235,14 @@ void MainWindow::on_pscoast_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete GMT_pscoast_ui;
 }
 
 void MainWindow::on_psbasemap_clicked()
 {
-    GMT_psbasemap_ui = new GMT_psbasemap(this, psfname); // 将文件名传给psbasemap对话框
+    GMT_psbasemap * GMT_psbasemap_ui = new GMT_psbasemap(this, psfname); // 将文件名传给psbasemap对话框
     GMT_psbasemap_ui->exec();
 
     QString cmd = GMT_psbasemap_ui->send_gmt_cmd();
@@ -239,7 +250,7 @@ void MainWindow::on_psbasemap_clicked()
     if (cmd.isEmpty())
         return;
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -247,11 +258,14 @@ void MainWindow::on_psbasemap_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete GMT_psbasemap_ui;
 }
 
 void MainWindow::on_psxy_clicked()
 {
-    GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psxy对话框
+    GMT_psxy * GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psxy对话框
     GMT_psxy_ui->exec();
 
     QString cmd = GMT_psxy_ui->send_gmt_cmd();
@@ -259,7 +273,7 @@ void MainWindow::on_psxy_clicked()
     if (cmd.isEmpty())
         return;
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -267,11 +281,14 @@ void MainWindow::on_psxy_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete GMT_psxy_ui;
 }
 
 void MainWindow::on_pssac_clicked()
 {
-    GMT_pssac_ui = new GMT_pssac(this, psfname); // 将文件名传给pssac对话框
+    GMT_pssac * GMT_pssac_ui = new GMT_pssac(this, psfname); // 将文件名传给pssac对话框
     GMT_pssac_ui->exec();
 
     QString cmd = GMT_pssac_ui->send_gmt_cmd();
@@ -279,7 +296,7 @@ void MainWindow::on_pssac_clicked()
     if (cmd.isEmpty())
         return;
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -287,11 +304,14 @@ void MainWindow::on_pssac_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete GMT_pssac_ui;
 }
 
 void MainWindow::on_pstext_clicked()
 {
-    GMT_pstext_ui = new GMT_pstext(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给pstext对话框
+    GMT_pstext * GMT_pstext_ui = new GMT_pstext(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给pstext对话框
     GMT_pstext_ui->exec();
 
     QString cmd = GMT_pstext_ui->send_gmt_cmd();
@@ -299,7 +319,7 @@ void MainWindow::on_pstext_clicked()
     if (cmd.isEmpty())
         return;
 
-    waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
@@ -307,6 +327,9 @@ void MainWindow::on_pstext_clicked()
         // 预览
         display_preview();
     }
+
+    delete waiting_thread_ui;
+    delete GMT_pstext_ui;
 }
 
 void MainWindow::on_export_ps_clicked()
