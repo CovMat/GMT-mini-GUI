@@ -15,5 +15,5 @@ windows版直接双击运行exe即可
 具体做法为在~/.bashrc或~/.zshrc中添加"export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:(GMTGUI-LINUX库文件的路径)
 
 
-##致谢
+## 致谢
 感谢@SeisSpath协助编译了Linux版本并进行了大量测试，给出了修改意见。感谢@yjmzj、@seisman为软件修改提出的宝贵意见。
