@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
+    <width>411</width>
     <height>171</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>361</width>
+     <width>410</width>
      <height>171</height>
     </rect>
    </property>
@@ -31,9 +31,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>154</x>
       <y>147</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -66,7 +66,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>207</x>
       <y>108</y>
       <width>51</width>
       <height>18</height>
@@ -82,9 +82,9 @@
    <widget class="QLineEdit" name="g_stride">
     <property name="geometry">
      <rect>
-      <x>243</x>
+      <x>274</x>
       <y>57</y>
-      <width>111</width>
+      <width>130</width>
       <height>20</height>
      </rect>
     </property>
@@ -114,7 +114,7 @@
    <widget class="QCheckBox" name="grid">
     <property name="geometry">
      <rect>
-      <x>243</x>
+      <x>274</x>
       <y>37</y>
       <width>76</width>
       <height>18</height>
@@ -152,9 +152,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>257</x>
       <y>147</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -167,7 +167,7 @@
      <rect>
       <x>3</x>
       <y>57</y>
-      <width>111</width>
+      <width>130</width>
       <height>20</height>
      </rect>
     </property>
@@ -197,7 +197,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>147</y>
       <width>51</width>
       <height>18</height>
@@ -216,9 +216,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>154</x>
       <y>108</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -232,7 +232,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>308</x>
       <y>147</y>
       <width>51</width>
       <height>18</height>
@@ -251,9 +251,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>360</x>
       <y>108</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -267,9 +267,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>360</x>
       <y>147</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -282,7 +282,7 @@
      <rect>
       <x>3</x>
       <y>17</y>
-      <width>181</width>
+      <width>401</width>
       <height>18</height>
      </rect>
     </property>
@@ -299,7 +299,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>108</y>
       <width>51</width>
       <height>18</height>
@@ -315,7 +315,7 @@
    <widget class="QCheckBox" name="frame">
     <property name="geometry">
      <rect>
-      <x>123</x>
+      <x>138</x>
       <y>37</y>
       <width>81</width>
       <height>18</height>
@@ -344,9 +344,9 @@
    <widget class="QLineEdit" name="f_stride">
     <property name="geometry">
      <rect>
-      <x>123</x>
+      <x>138</x>
       <y>57</y>
-      <width>111</width>
+      <width>130</width>
       <height>20</height>
      </rect>
     </property>
@@ -360,7 +360,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>308</x>
       <y>108</y>
       <width>51</width>
       <height>18</height>
@@ -379,9 +379,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>257</x>
       <y>108</y>
-      <width>31</width>
+      <width>40</width>
       <height>20</height>
      </rect>
     </property>
@@ -395,7 +395,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>207</x>
       <y>147</y>
       <width>51</width>
       <height>18</height>
@@ -430,9 +430,9 @@
    <widget class="QCheckBox" name="all_disable">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>50</x>
       <y>-1</y>
-      <width>111</width>
+      <width>341</width>
       <height>18</height>
      </rect>
     </property>
@@ -443,7 +443,7 @@
    <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>80</x>
       <y>90</y>
       <width>20</width>
       <height>71</height>
@@ -456,7 +456,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>90</y>
       <width>251</width>
       <height>16</height>
@@ -469,7 +469,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>130</y>
       <width>251</width>
       <height>16</height>

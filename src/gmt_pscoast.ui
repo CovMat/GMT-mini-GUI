@@ -88,7 +88,7 @@
     <rect>
      <x>163</x>
      <y>290</y>
-     <width>151</width>
+     <width>191</width>
      <height>20</height>
     </rect>
    </property>
@@ -209,7 +209,7 @@
     <rect>
      <x>90</x>
      <y>340</y>
-     <width>61</width>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -220,7 +220,7 @@
   <widget class="QPushButton" name="W_pen_color">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>340</y>
      <width>80</width>
      <height>20</height>

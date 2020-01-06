@@ -298,7 +298,7 @@
   <widget class="QPushButton" name="W_pen_color">
    <property name="geometry">
     <rect>
-     <x>93</x>
+     <x>110</x>
      <y>370</y>
      <width>51</width>
      <height>20</height>
@@ -324,7 +324,7 @@
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>149</x>
+     <x>166</x>
      <y>371</y>
      <width>191</width>
      <height>16</height>
@@ -339,7 +339,7 @@
     <rect>
      <x>30</x>
      <y>370</y>
-     <width>61</width>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>

@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("GMT-mini-GUI beta 0.0.1");
+    this->setWindowTitle("GMT-mini-GUI beta 0.0.3");
 
     psfname = ""; // 清空初始化ps文件文件名
     cmd_num = 0; // 命令数目清零
@@ -268,7 +268,7 @@ void MainWindow::on_psbasemap_clicked()
 
 void MainWindow::on_psxy_clicked()
 {
-    GMT_psxy * GMT_psxy_ui = new GMT_psxy(this, psfname); // 将文件名传给psxy对话框
+    GMT_psxy * GMT_psxy_ui = new GMT_psxy(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给psxy对话框
     GMT_psxy_ui->exec();
 
     QString cmd = GMT_psxy_ui->send_gmt_cmd();

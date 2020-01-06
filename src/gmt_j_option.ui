@@ -22,6 +22,11 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="QLineEdit" name="paras">
    <property name="geometry">

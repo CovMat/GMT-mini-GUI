@@ -34,7 +34,7 @@ GMT_pstext::~GMT_pstext()
 // 自定义鼠标按下事件处理
 void GMT_pstext::mousePressEvent(QMouseEvent *event){
     // 如果是鼠标左键按下
-    if(event->button() == Qt::LeftButton){
+    if(event->button() == Qt::LeftButton && ui->use_mouse->isChecked()){
         QPoint pt = mapFromGlobal(QCursor::pos()); //直接pos得到的是相对于屏幕的全局坐标，需要转换成相对于窗口的坐标，原点在窗口左上
         int labelx = ui->label->pos().x(); // 图片控件左上角的坐标
         int labely = ui->label->pos().y();
@@ -76,6 +76,24 @@ void GMT_pstext::on_text_color_clicked()
     }
 }
 
+void GMT_pstext::on_use_input_clicked()
+{
+    if ( ui->use_input->isChecked() ){
+        ui->position_input->setEnabled(true);
+        ui->position->setEnabled(false);
+        ui->use_mouse->setChecked(false);
+    }
+}
+
+void GMT_pstext::on_use_mouse_clicked()
+{
+    if ( ui->use_mouse->isChecked() ){
+        ui->position->setEnabled(true);
+        ui->position_input->setEnabled(false);
+        ui->use_input->setChecked(false);
+    }
+}
+
 void GMT_pstext::on_bexit_clicked()
 {
     gmt_cmd = ""; // 清空
@@ -87,12 +105,23 @@ void GMT_pstext::on_bok_clicked()
 {
     QString w_input;
     // 检查文本position
-    w_input = ui->position->toPlainText();
-    if  ( w_input.isEmpty() ){
-        QMessageBox msgBox;
-        msgBox.setText("必须点击一个位置");
-        msgBox.exec();
-        return;
+    if (ui->use_mouse->isChecked()){
+        w_input = ui->position->toPlainText();
+        if  ( w_input.isEmpty() ){
+            QMessageBox msgBox;
+            msgBox.setText("必须点击一个位置");
+            msgBox.exec();
+            return;
+        }
+    }
+    if (ui->use_input->isChecked()){
+        w_input = ui->position_input->text();
+        if (w_input.isEmpty()){
+            QMessageBox msgBox;
+            msgBox.setText("必须输入一个位置");
+            msgBox.exec();
+            return;
+        }
     }
     // 检查文本
     w_input = ui->usertext->text();
@@ -135,10 +164,22 @@ void GMT_pstext::on_bok_clicked()
         return;
     }
 
-    gmt_cmd = "echo "+ui->position->toPlainText()+" "+ui->usertext->text()+" | ";
-    gmt_cmd += "gmt pstext -O -K -Xa-1i -Ya-1i ";
-    gmt_cmd += "-JX"+QString::number(image_w)+"i/"+QString::number(image_h)+"i ";
-    gmt_cmd += "-R0/"+QString::number(image_w)+"/0/"+QString::number(image_h)+" ";
+    if (ui->use_mouse->isChecked()){
+        gmt_cmd = "echo "+ui->position->toPlainText()+" ";
+    }
+    else if (ui->use_input->isChecked()){
+        gmt_cmd = "echo "+ui->position_input->text()+" ";
+    }
+    gmt_cmd += ui->usertext->text()+" | ";
+    gmt_cmd += "gmt pstext -O -K ";
+    if (ui->use_input->isChecked()){
+        gmt_cmd += "-J -R ";
+    }
+    else if (ui->use_mouse->isChecked()){
+        gmt_cmd += "-JX"+QString::number(image_w)+"i/"+QString::number(image_h)+"i ";
+        gmt_cmd += "-R0/"+QString::number(image_w)+"/0/"+QString::number(image_h)+" ";
+        gmt_cmd += "-Xa-1i -Ya-1i ";
+    }
     gmt_cmd += "-F+f"+ui->size->text()+","+ui->font->text()+",";
     gmt_cmd += QString::number(text_color.red())+"/"+QString::number(text_color.green())+"/"+QString::number(text_color.blue());
     gmt_cmd += "+a"+ui->angle->text();

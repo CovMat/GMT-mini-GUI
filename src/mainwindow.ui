@@ -44,9 +44,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>80</y>
+      <y>69</y>
       <width>81</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -60,9 +60,9 @@
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>590</y>
+      <y>587</y>
       <width>111</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -85,9 +85,9 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>30</y>
+       <y>24</y>
        <width>131</width>
-       <height>20</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -98,9 +98,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>24</y>
        <width>131</width>
-       <height>20</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -114,9 +114,9 @@
      <property name="geometry">
       <rect>
        <x>290</x>
-       <y>30</y>
+       <y>24</y>
        <width>81</width>
-       <height>20</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -131,9 +131,9 @@
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>80</y>
+      <y>69</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -179,9 +179,9 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>590</y>
+      <y>587</y>
       <width>111</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -195,9 +195,9 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>80</y>
+      <y>69</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -211,9 +211,9 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>80</y>
+      <y>69</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -227,9 +227,9 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>80</y>
+      <y>69</y>
       <width>80</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -239,15 +239,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>809</x>
+      <x>759</x>
       <y>30</y>
-      <width>71</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>访问GMT
-中文手册</string>
+     <string>访问GMT中文手册</string>
     </property>
    </widget>
   </widget>

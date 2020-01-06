@@ -33,6 +33,10 @@ private slots:
 
     void on_bok_clicked();
 
+    void on_use_input_clicked();
+
+    void on_use_mouse_clicked();
+
 private:
     Ui::GMT_pstext *ui;
     QString psfname;
