@@ -2,6 +2,10 @@
 #include "ui_gmt_psxy.h"
 #include <QFileDialog>
 #include <QMessageBox> //显示提示信息
+#include <iostream>
+#include <fstream>
+#include <QProcess>
+#include <QTextStream>
 
 GMT_psxy::GMT_psxy(QWidget *parent,QString S, int tw, int th, float wi, float hi) : //传入参数
     QDialog(parent,Qt::WindowTitleHint | Qt::CustomizeWindowHint), // 隐藏关闭按钮和帮助按钮
@@ -16,14 +20,6 @@ GMT_psxy::GMT_psxy(QWidget *parent,QString S, int tw, int th, float wi, float hi
     this->setWindowTitle("psxy");
 
     gmt_cmd = ""; // 清空初始化
-
-    J_option = new GMT_J_option(this); // 添加-J选项
-    J_option->show();
-    R_option = new GMT_R_option(this); // 添加-R选项
-    R_option->show();
-
-    ui->J_Layout->addWidget(J_option);
-    ui->R_Layout->addWidget(R_option);
 
     g_color.setRgb(0,255,0);
     ui->g_color->setStyleSheet(QString("background-color: %1").arg(g_color.name()));
@@ -61,7 +57,27 @@ void GMT_psxy::mousePressEvent(QMouseEvent *event){
         // 转换成GMT的坐标
         float xx = (float)mx / (float)w * image_w;
         float yy = (float)my / (float)h * image_h;
-        ui->position->setText(QString::number(xx)+" "+QString::number(yy));
+        // 原点移动到（1i，1i）。注意这里要求 MAP_ORIGIN_X 和 MAP_ORIGIN_Y 保持默认值不变
+        xx--;
+        yy--;
+        // 输出到临时文件
+        QFile::remove("gmt-mini-coordinate.txt");
+        std::ofstream out( "gmt-mini-coordinate.txt", std::ios_base::binary | std::ios_base::out);
+        out << xx << " " << yy;
+        out.close();
+        // 换算到地理坐标
+        QFile::remove("gmt-mini-project.txt");
+        QProcess::execute("gmt mapproject -J -R -Di -I --IO_COL_SEPARATOR=space gmt-mini-coordinate.txt > gmt-mini-project.txt");
+        // 读取转换后的地理坐标
+        std::ifstream fin;
+        fin.open("gmt-mini-project.txt");
+        std::string str;
+        std::getline(fin, str);
+        ui->position->setText(QString::fromStdString(str));
+        fin.close();
+        // 删除临时文件
+        QFile::remove("gmt-mini-project.txt");
+        QFile::remove("gmt-mini-coordinate.txt");
     }
 
 }
@@ -176,8 +192,6 @@ void GMT_psxy::on_bexit_clicked()
 {
     gmt_cmd = ""; // 清空
     // 关闭窗口
-    delete J_option;
-    delete R_option;
     this->close();
 }
 
@@ -214,20 +228,15 @@ void GMT_psxy::on_bok_clicked()
 
     if (ui->use_mouse->isChecked()){
         gmt_cmd = "echo "+ui->position->toPlainText()+" | gmt psxy -O -K ";
-        gmt_cmd += "-JX"+QString::number(image_w)+"i/"+QString::number(image_h)+"i ";
-        gmt_cmd += "-R0/"+QString::number(image_w)+"/0/"+QString::number(image_h)+" ";
-        gmt_cmd += "-Xa-1i -Ya-1i ";
     }
     else if (ui->use_input->isChecked()){
         gmt_cmd = "echo "+ui->position_input->text()+" | gmt psxy -O -K ";
-        gmt_cmd += J_option->sendData()+" ";
-        gmt_cmd += R_option->sendData()+" ";
     }
     else if (ui->use_file->isChecked()){
         gmt_cmd = "gmt psxy -O -K "+ui->datafile->text()+" ";
-        gmt_cmd += J_option->sendData()+" ";
-        gmt_cmd += R_option->sendData()+" ";
     }
+
+    gmt_cmd += "-J -R -N ";
 
     if (!ui->W_pen_w->text().isEmpty()){
         gmt_cmd += "-W"+ui->W_pen_w->text()+",";
@@ -249,8 +258,6 @@ void GMT_psxy::on_bok_clicked()
     gmt_cmd += ">> "+psfname;
 
     // 关闭窗口
-    delete J_option;
-    delete R_option;
     this->close();
 }
 

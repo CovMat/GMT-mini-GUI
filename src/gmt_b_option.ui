@@ -333,7 +333,7 @@
      <rect>
       <x>3</x>
       <y>77</y>
-      <width>351</width>
+      <width>401</width>
       <height>16</height>
      </rect>
     </property>
@@ -443,10 +443,10 @@
    <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>90</y>
+      <x>70</x>
+      <y>87</y>
       <width>20</width>
-      <height>71</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="orientation">

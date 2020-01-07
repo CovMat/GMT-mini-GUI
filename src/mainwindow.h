@@ -13,6 +13,16 @@
 #include "gmt_psxy.h"
 #include "gmt_pssac.h"
 #include "gmt_pstext.h"
+#include "gmt_set.h"
+
+#define MAP_FRAME_TYPE_default "fancy"
+#define MAP_FRAME_WIDTH_default "5p"
+#define MAP_FRAME_PEN_default "thicker,black"
+#define MAP_TICK_LENGTH_PRIMARY_default "5p/2.5p"
+#define MAP_ANNOT_OFFSET_PRIMARY_default "5p"
+#define MAP_LABEL_OFFSET_default "8p"
+#define FONT_ANNOT_PRIMARY_default "12p,Helvetica,black"
+#define FONT_LABEL_default "16p,Helvetica,black"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -53,6 +63,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_gmtset_clicked();
+
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
     void convert2png(int); // 用于生成png文件进行预览
@@ -64,14 +76,14 @@ private:
     int cmd_num; // 记录当前的命令数目
     float image_w; // 记录图片的大小
     float image_h;
-    /*
-    new_ps_file *new_ps_file_ui; //创建类的指针，私有变量，新建画布对话框的类
-    waiting_thread *waiting_thread_ui; // 创建类的指针，私有变量，等待GMT绘图线程运行对话框的类
-    GMT_pscoast *GMT_pscoast_ui;
-    GMT_psbasemap *GMT_psbasemap_ui;
-    GMT_psxy *GMT_psxy_ui;
-    GMT_pssac *GMT_pssac_ui;
-    GMT_pstext *GMT_pstext_ui;
-    */
+    QString MAP_FRAME_TYPE,
+            MAP_FRAME_WIDTH,
+            MAP_FRAME_PEN,
+            MAP_TICK_LENGTH_PRIMARY,
+            MAP_ANNOT_OFFSET_PRIMARY,
+            MAP_LABEL_OFFSET,
+            FONT_ANNOT_PRIMARY,
+            FONT_LABEL;
+
 };
 #endif // MAINWINDOW_H

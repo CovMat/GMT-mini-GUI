@@ -91,7 +91,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS UI Gothic';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="placeholderText">
-    <string>使用鼠标点击决定位置，将会重新定义-J -R选项。请在右边图片点击想要添加文本的参考点位置，参考点坐标表示为相对于图片右下角的英寸数(inch)。</string>
+    <string>【警告】 使用鼠标点击决定位置，将会清除之前的-J -R定义，建议放在最后一步执行。请在右边图片点击想要添加文本的参考点位置，参考点坐标表示为相对于图片右下角的英寸数(inch)。</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -224,7 +224,7 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="placeholderText">
-    <string>参考：0.5i</string>
+    <string>填写大小</string>
    </property>
   </widget>
   <widget class="QPushButton" name="text_color">

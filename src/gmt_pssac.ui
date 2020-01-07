@@ -344,7 +344,7 @@
     </rect>
    </property>
    <property name="placeholderText">
-    <string>参考：0.5p</string>
+    <string>填写宽度</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_10">

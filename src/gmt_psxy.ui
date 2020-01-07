@@ -13,28 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>33</y>
-     <width>431</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="J_Layout"/>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>63</y>
-     <width>431</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="R_Layout"/>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -55,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>30</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -71,7 +49,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>150</y>
+     <y>90</y>
      <width>311</width>
      <height>18</height>
     </rect>
@@ -84,7 +62,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>120</y>
+     <y>60</y>
      <width>87</width>
      <height>18</height>
     </rect>
@@ -103,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>150</y>
+     <y>90</y>
      <width>111</width>
      <height>18</height>
     </rect>
@@ -116,7 +94,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>120</y>
+     <y>60</y>
      <width>101</width>
      <height>22</height>
     </rect>
@@ -191,7 +169,7 @@
    <property name="geometry">
     <rect>
      <x>184</x>
-     <y>90</y>
+     <y>30</y>
      <width>51</width>
      <height>20</height>
     </rect>
@@ -204,7 +182,7 @@
    <property name="geometry">
     <rect>
      <x>79</x>
-     <y>91</y>
+     <y>31</y>
      <width>21</width>
      <height>16</height>
     </rect>
@@ -217,20 +195,20 @@
    <property name="geometry">
     <rect>
      <x>97</x>
-     <y>90</y>
+     <y>30</y>
      <width>81</width>
      <height>20</height>
     </rect>
    </property>
    <property name="placeholderText">
-    <string>参考：0.5p</string>
+    <string>填写宽度</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>240</x>
-     <y>91</y>
+     <y>31</y>
      <width>191</width>
      <height>16</height>
     </rect>
@@ -243,7 +221,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>369</y>
+     <y>289</y>
      <width>281</width>
      <height>20</height>
     </rect>
@@ -256,7 +234,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>370</y>
+     <y>290</y>
      <width>161</width>
      <height>16</height>
     </rect>
@@ -269,7 +247,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>410</y>
+     <y>330</y>
      <width>80</width>
      <height>20</height>
     </rect>
@@ -282,7 +260,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>410</y>
+     <y>330</y>
      <width>80</width>
      <height>20</height>
     </rect>
@@ -295,20 +273,20 @@
    <property name="geometry">
     <rect>
      <x>172</x>
-     <y>120</y>
+     <y>60</y>
      <width>61</width>
      <height>20</height>
     </rect>
    </property>
    <property name="placeholderText">
-    <string>参考: 0.1i</string>
+    <string>填写大小</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
      <x>236</x>
-     <y>122</y>
+     <y>62</y>
      <width>191</width>
      <height>16</height>
     </rect>
@@ -350,7 +328,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>173</y>
+     <y>113</y>
      <width>431</width>
      <height>16</height>
     </rect>
@@ -363,9 +341,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>190</y>
+     <y>130</y>
      <width>431</width>
-     <height>171</height>
+     <height>141</height>
     </rect>
    </property>
    <property name="title">
@@ -396,7 +374,7 @@
       <x>110</x>
       <y>50</y>
       <width>311</width>
-      <height>61</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="html">
@@ -407,7 +385,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS UI Gothic';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="placeholderText">
-     <string>使用鼠标点击决定位置，将会重新定义-J -R选项。请在右边图片点击想要添加符号的位置，坐标表示为相对于图片右下角的英寸数(inch)。</string>
+     <string>请在右图用鼠标点击决定单点坐标位置。</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="position_input">
@@ -440,7 +418,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
+      <y>90</y>
       <width>101</width>
       <height>18</height>
      </rect>
@@ -456,7 +434,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>110</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -472,7 +450,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>120</y>
+      <y>90</y>
       <width>311</width>
       <height>41</height>
      </rect>

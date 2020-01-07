@@ -5,9 +5,6 @@
 #include <QColorDialog>
 #include <QMouseEvent>
 
-#include "gmt_j_option.h"
-#include "gmt_r_option.h"
-
 namespace Ui {
 class GMT_psxy;
 }
@@ -53,8 +50,6 @@ private:
     float image_w;
     float image_h;
     QString gmt_cmd; // 向主窗体返回的变量，生成的GMT命令字符串
-    GMT_J_option * J_option;
-    GMT_R_option * R_option;
     QColor g_color; //记录G颜色
     QColor W_pen_color; //记录线颜色
 };

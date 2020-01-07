@@ -37,6 +37,7 @@ void MainWindow::set_gmt_button_enable(bool flag){
     ui->psxy->setEnabled(flag);
     ui->pssac->setEnabled(flag);
     ui->pstext->setEnabled(flag);
+    ui->gmtset->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
 
@@ -103,6 +104,19 @@ void MainWindow::on_new_PS_file_clicked()
     if (QFile::exists("gmt.history")){
         QFile::remove("gmt.history");
     }
+    // 删除gmt.conf
+    if (QFile::exists("gmt.conf")){
+        QFile::remove("gmt.conf");
+    }
+    // 初始化配置
+    MAP_FRAME_TYPE=MAP_FRAME_TYPE_default;
+    MAP_FRAME_WIDTH=MAP_FRAME_WIDTH_default;
+    MAP_FRAME_PEN=MAP_FRAME_PEN_default;
+    MAP_TICK_LENGTH_PRIMARY=MAP_TICK_LENGTH_PRIMARY_default;
+    MAP_ANNOT_OFFSET_PRIMARY=MAP_ANNOT_OFFSET_PRIMARY_default;
+    MAP_LABEL_OFFSET=MAP_LABEL_OFFSET_default;
+    FONT_ANNOT_PRIMARY=FONT_ANNOT_PRIMARY_default;
+    FONT_LABEL=FONT_LABEL_default;
 
     waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
@@ -182,6 +196,19 @@ void MainWindow::on_undo_confirm_clicked()
     if (QFile::exists("gmt.history")){
         QFile::remove("gmt.history");
     }
+    // 删除gmt.conf
+    if (QFile::exists("gmt.conf")){
+        QFile::remove("gmt.conf");
+    }
+    // 初始化配置
+    MAP_FRAME_TYPE=MAP_FRAME_TYPE_default;
+    MAP_FRAME_WIDTH=MAP_FRAME_WIDTH_default;
+    MAP_FRAME_PEN=MAP_FRAME_PEN_default;
+    MAP_TICK_LENGTH_PRIMARY=MAP_TICK_LENGTH_PRIMARY_default;
+    MAP_ANNOT_OFFSET_PRIMARY=MAP_ANNOT_OFFSET_PRIMARY_default;
+    MAP_LABEL_OFFSET=MAP_LABEL_OFFSET_default;
+    FONT_ANNOT_PRIMARY=FONT_ANNOT_PRIMARY_default;
+    FONT_LABEL=FONT_LABEL_default;
 
     // 保存第 0 ~ cmd_num-1 条命令
     QString tmp_list[1024];
@@ -333,6 +360,47 @@ void MainWindow::on_pstext_clicked()
 
     delete waiting_thread_ui;
     delete GMT_pstext_ui;
+}
+
+void MainWindow::on_gmtset_clicked()
+{
+    GMT_set * GMT_set_ui = new GMT_set(this,
+                                       MAP_FRAME_TYPE,
+                                       MAP_FRAME_WIDTH,
+                                       MAP_FRAME_PEN,
+                                       MAP_TICK_LENGTH_PRIMARY,
+                                       MAP_ANNOT_OFFSET_PRIMARY,
+                                       MAP_LABEL_OFFSET,
+                                       FONT_ANNOT_PRIMARY,
+                                       FONT_LABEL);
+    GMT_set_ui->exec();
+
+    QString cmd = GMT_set_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+
+        // 记录各个配置项的值
+        QVariant data_package = GMT_set_ui->send_data();
+        vector<QString> list = data_package.value< vector<QString> >(); // 数据解包
+        MAP_FRAME_TYPE = list.at(0);
+        MAP_FRAME_WIDTH = list.at(1);
+        MAP_FRAME_PEN = list.at(2);
+        MAP_TICK_LENGTH_PRIMARY = list.at(3);
+        MAP_ANNOT_OFFSET_PRIMARY = list.at(4);
+        MAP_LABEL_OFFSET = list.at(5);
+        FONT_ANNOT_PRIMARY = list.at(6);
+        FONT_LABEL = list.at(7);
+    }
+
+    delete waiting_thread_ui;
+    delete GMT_set_ui;
 }
 
 void MainWindow::on_export_ps_clicked()

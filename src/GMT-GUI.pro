@@ -25,6 +25,7 @@ SOURCES += \
     gmt_pstext.cpp \
     gmt_psxy.cpp \
     gmt_r_option.cpp \
+    gmt_set.cpp \
     main.cpp \
     mainwindow.cpp \
     new_ps_file.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     gmt_pstext.h \
     gmt_psxy.h \
     gmt_r_option.h \
+    gmt_set.h \
     mainwindow.h \
     new_ps_file.h \
     waiting_thread.h
@@ -53,6 +55,7 @@ FORMS += \
     gmt_pstext.ui \
     gmt_psxy.ui \
     gmt_r_option.ui \
+    gmt_set.ui \
     mainwindow.ui \
     new_ps_file.ui \
     waiting_thread.ui
