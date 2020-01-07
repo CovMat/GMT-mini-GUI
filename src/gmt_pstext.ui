@@ -468,6 +468,10 @@ p, li { white-space: pre-wrap; }
   <tabstop>position_input</tabstop>
   <tabstop>use_mouse</tabstop>
   <tabstop>position</tabstop>
+  <tabstop>use_file</tabstop>
+  <tabstop>use_file_6</tabstop>
+  <tabstop>b_datafile</tabstop>
+  <tabstop>datafile</tabstop>
   <tabstop>other_options</tabstop>
   <tabstop>bok</tabstop>
   <tabstop>bexit</tabstop>

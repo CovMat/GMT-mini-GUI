@@ -16,7 +16,7 @@ GMT_pstext::GMT_pstext(QWidget *parent,QString S, int tw, int th, float wi, floa
     gmt_cmd = ""; // 清空初始化
 
     //
-    ui->datafile->setPlaceholderText("3列文件的格式为：X  Y  text。 \n6列文件的格式为：x  y  font  angle  justify  text");
+    ui->datafile->setPlaceholderText("3列文件的格式为：x  y  text。 \n6列文件的格式为：x  y  font  angle  justify  text");
 
     ui->label->resize(w,h);
     ui->label->setScaledContents(true); // label要设置为自动缩放内容

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>622</height>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>129</y>
       <width>361</width>
       <height>471</height>
      </rect>
@@ -60,7 +60,7 @@
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>587</y>
+      <y>606</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -144,7 +144,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>110</y>
+      <y>129</y>
       <width>521</width>
       <height>471</height>
      </rect>
@@ -179,7 +179,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>587</y>
+      <y>606</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -265,8 +265,68 @@
      <string>gmtset</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="custom">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>70</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>手动输入GMT命令</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>108</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>代码区</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>110</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>预览区</string>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>new_PS_file</tabstop>
+  <tabstop>gmtset</tabstop>
+  <tabstop>pscoast</tabstop>
+  <tabstop>psbasemap</tabstop>
+  <tabstop>psxy</tabstop>
+  <tabstop>pssac</tabstop>
+  <tabstop>pstext</tabstop>
+  <tabstop>custom</tabstop>
+  <tabstop>undo</tabstop>
+  <tabstop>redo</tabstop>
+  <tabstop>undo_confirm</tabstop>
+  <tabstop>export_ps</tabstop>
+  <tabstop>endps</tabstop>
+  <tabstop>export_cmd</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>cmd_list</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

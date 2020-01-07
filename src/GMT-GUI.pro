@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Run_GMT_CMD.cpp \
     gmt_b_option.cpp \
+    gmt_custom.cpp \
     gmt_j_option.cpp \
     gmt_psbasemap.cpp \
     gmt_pscoast.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 HEADERS += \
     Run_GMT_CMD.h \
     gmt_b_option.h \
+    gmt_custom.h \
     gmt_j_option.h \
     gmt_psbasemap.h \
     gmt_pscoast.h \
@@ -48,6 +50,7 @@ HEADERS += \
 
 FORMS += \
     gmt_b_option.ui \
+    gmt_custom.ui \
     gmt_j_option.ui \
     gmt_psbasemap.ui \
     gmt_pscoast.ui \

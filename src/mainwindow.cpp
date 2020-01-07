@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
     cmd_num = 0; // 命令数目清零
 
     ui->label->setScaledContents(true); // label要设置为自动缩放内容
+    QFont font1;
+    font1.setFamily("Courier");
+    font1.setPointSize(7);
+    ui->cmd_list->setFont(font1);
 
 }
 
@@ -38,6 +42,7 @@ void MainWindow::set_gmt_button_enable(bool flag){
     ui->pssac->setEnabled(flag);
     ui->pstext->setEnabled(flag);
     ui->gmtset->setEnabled(flag);
+    ui->custom->setEnabled(flag);
 
     ui->endps->setEnabled(flag);
 
@@ -401,6 +406,29 @@ void MainWindow::on_gmtset_clicked()
 
     delete waiting_thread_ui;
     delete GMT_set_ui;
+}
+
+void MainWindow::on_custom_clicked()
+{
+    GMT_custom * GMT_custom_ui = new GMT_custom(); // 将文件名传给pstext对话框
+    GMT_custom_ui->exec();
+
+    QString cmd = GMT_custom_ui->send_gmt_cmd();
+
+    if (cmd.isEmpty())
+        return;
+
+    waiting_thread * waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
+    waiting_thread_ui->exec(); //显示窗口， 阻塞方式
+    if (waiting_thread_ui->send_exit_code() == 0 ){ // 如果是异常退出就不执行了
+        ui->cmd_list->addItem(cmd); // 将命令添加到列表中
+        cmd_num++; //命令个数+1
+        // 预览
+        display_preview();
+    }
+
+    delete waiting_thread_ui;
+    delete GMT_custom_ui;
 }
 
 void MainWindow::on_export_ps_clicked()

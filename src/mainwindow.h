@@ -14,6 +14,7 @@
 #include "gmt_pssac.h"
 #include "gmt_pstext.h"
 #include "gmt_set.h"
+#include "gmt_custom.h"
 
 #define MAP_FRAME_TYPE_default "fancy"
 #define MAP_FRAME_WIDTH_default "5p"
@@ -64,6 +65,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_gmtset_clicked();
+
+    void on_custom_clicked();
 
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
