@@ -223,6 +223,9 @@ p, li { white-space: pre-wrap; }
      <height>20</height>
     </rect>
    </property>
+   <property name="text">
+    <string>12p</string>
+   </property>
    <property name="placeholderText">
     <string>填写大小</string>
    </property>
