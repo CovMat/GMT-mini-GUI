@@ -17,4 +17,4 @@ windows版直接双击运行exe即可
 
 
 ## 致谢
-感谢@SeisSpath协助编译了Linux版本并进行了大量测试，给出了修改意见。感谢@yjmzj、@seisman为软件修改提出的宝贵意见。
+感谢@SeisSpath协助编译了Linux版本并进行了大量测试，给出了修改意见。感谢@yjmzj、@seisman、@core-man为软件修改提出的宝贵意见。
