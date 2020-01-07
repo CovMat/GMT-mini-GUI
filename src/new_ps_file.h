@@ -25,11 +25,17 @@ public:
 private slots:
     void on_ok_button_clicked();
 
-    void on_w_input_textEdited();
+    void on_w_input_textChanged();
 
-    void on_h_input_textEdited(const QString &arg1);
+    void on_h_input_textChanged();
 
     void on_bexit_clicked();
+
+    void on_w_input_cm_textChanged();
+
+    void on_h_input_cm_textChanged();
+
+    void on_A4_clicked();
 
 private:
     Ui::new_ps_file *ui;

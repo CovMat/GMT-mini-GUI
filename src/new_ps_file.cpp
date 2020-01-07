@@ -28,6 +28,8 @@ new_ps_file::new_ps_file(QWidget *parent) :
     QRegExpValidator *pattern= new QRegExpValidator(regExp, this);
     ui->w_input->setValidator(pattern);
     ui->h_input->setValidator(pattern);
+    ui->w_input_cm->setValidator(pattern);
+    ui->h_input_cm->setValidator(pattern);
 }
 
 new_ps_file::~new_ps_file()
@@ -39,7 +41,7 @@ void new_ps_file::on_ok_button_clicked()
 {
     // 检查宽度
     QString w_input = ui->w_input->text();
-    if  ( w_input.isEmpty() ){
+    if  ( w_input.isEmpty() || ui->w_input_cm->text().isEmpty() ){
         QMessageBox msgBox;
         msgBox.setText("宽度不可为空");
         msgBox.exec();
@@ -47,7 +49,7 @@ void new_ps_file::on_ok_button_clicked()
     }
     // 检查高度
     QString h_input = ui->h_input->text();
-    if  ( h_input.isEmpty() ){
+    if  ( h_input.isEmpty() || ui->h_input_cm->text().isEmpty() ){
         QMessageBox msgBox;
         msgBox.setText("高度不可为空");
         msgBox.exec();
@@ -84,15 +86,33 @@ void new_ps_file::on_ok_button_clicked()
     this->close();
 }
 
-void new_ps_file::on_w_input_textEdited()
+void new_ps_file::on_w_input_textChanged()
 {
-    ui->w_cm->setText(" = "+QString::number( ui->w_input->text().toFloat() * 2.54 )+"厘米");
+    ui->w_input_cm->setText(QString::number( ui->w_input->text().toFloat() * 2.54 ));
 }
 
-void new_ps_file::on_h_input_textEdited(const QString &arg1)
+void new_ps_file::on_h_input_textChanged()
 {
-    ui->h_cm->setText(" = "+QString::number( ui->h_input->text().toFloat() * 2.54 )+"厘米");
+    ui->h_input_cm->setText(QString::number( ui->h_input->text().toFloat() * 2.54 ));
 }
+
+void new_ps_file::on_w_input_cm_textChanged()
+{
+    ui->w_input->setText(QString::number( ui->w_input_cm->text().toFloat() / 2.54 ));
+}
+
+void new_ps_file::on_h_input_cm_textChanged()
+{
+    ui->h_input->setText(QString::number( ui->h_input_cm->text().toFloat() / 2.54 ));
+}
+
+
+void new_ps_file::on_A4_clicked()
+{
+    ui->w_input_cm->setText("21");
+    ui->h_input_cm->setText("29.7");
+}
+
 
 void new_ps_file::on_bexit_clicked()
 {
@@ -100,5 +120,7 @@ void new_ps_file::on_bexit_clicked()
     psfilename = "";
     delete ui->w_input->validator();
     delete ui->h_input->validator();
+    delete ui->w_input_cm->validator();
+    delete ui->h_input_cm->validator();
     this->close();
 }

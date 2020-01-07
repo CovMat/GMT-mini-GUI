@@ -16,8 +16,8 @@
   <widget class="QLabel" name="w">
    <property name="geometry">
     <rect>
-     <x>12</x>
-     <y>41</y>
+     <x>269</x>
+     <y>40</y>
      <width>61</width>
      <height>16</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QLabel" name="h">
    <property name="geometry">
     <rect>
-     <x>12</x>
-     <y>70</y>
+     <x>269</x>
+     <y>69</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QLineEdit" name="w_input">
    <property name="geometry">
     <rect>
-     <x>75</x>
-     <y>40</y>
+     <x>332</x>
+     <y>38</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QLineEdit" name="h_input">
    <property name="geometry">
     <rect>
-     <x>75</x>
-     <y>70</y>
+     <x>332</x>
+     <y>68</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -133,8 +133,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>143</x>
-     <y>42</y>
+     <x>400</x>
+     <y>40</y>
      <width>16</width>
      <height>16</height>
     </rect>
@@ -146,40 +146,14 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>143</x>
-     <y>70</y>
+     <x>400</x>
+     <y>68</y>
      <width>16</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;i&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="w_cm">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>40</y>
-     <width>131</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>1 inch = 2.54 厘米</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="h_cm">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>70</y>
-     <width>131</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>1 inch = 2.54 厘米</string>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
@@ -256,12 +230,133 @@
     <string>取消</string>
    </property>
   </widget>
+  <widget class="QLabel" name="w_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>40</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>宽度(cm)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="h_2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>69</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>高度(cm)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="h_input_cm">
+   <property name="geometry">
+    <rect>
+     <x>162</x>
+     <y>68</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>输入数字</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="w_input_cm">
+   <property name="geometry">
+    <rect>
+     <x>162</x>
+     <y>38</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>输入数字</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>68</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>40</y>
+     <width>21</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cm&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="A4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>80</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>使用A4纸</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>30</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>30</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
  </widget>
  <tabstops>
+  <tabstop>A4</tabstop>
+  <tabstop>w_input_cm</tabstop>
+  <tabstop>h_input_cm</tabstop>
   <tabstop>w_input</tabstop>
   <tabstop>h_input</tabstop>
   <tabstop>ps_fname</tabstop>
   <tabstop>ok_button</tabstop>
+  <tabstop>bexit</tabstop>
  </tabstops>
  <resources/>
  <connections/>
