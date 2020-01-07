@@ -7,6 +7,13 @@
 #include <QUrl>
 #include <QDesktopServices>
 #include <QColorDialog>
+#include <QProcess>
+#include <QMessageBox> //显示提示信息
+#include <iostream>
+#include <fstream>
+#include <QProcess>
+#include <QTextStream>
+#include <QFileDialog>
 
 namespace Ui {
 class GMT_pstext;
@@ -36,6 +43,12 @@ private slots:
     void on_use_input_clicked();
 
     void on_use_mouse_clicked();
+
+    void on_use_file_clicked();
+
+    void on_use_file_6_clicked();
+
+    void on_b_datafile_clicked();
 
 private:
     Ui::GMT_pstext *ui;

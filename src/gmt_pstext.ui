@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>600</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
      <x>440</x>
      <y>10</y>
      <width>16</width>
-     <height>581</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="orientation">
@@ -48,7 +48,7 @@
      <x>460</x>
      <y>20</y>
      <width>531</width>
-     <height>571</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -80,7 +80,7 @@
      <x>110</x>
      <y>250</y>
      <width>331</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="html">
@@ -91,7 +91,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS UI Gothic';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="placeholderText">
-    <string>【警告】 使用鼠标点击决定位置，将会清除之前的-J -R定义，建议放在最后一步执行。请在右边图片点击想要添加文本的参考点位置，参考点坐标表示为相对于图片右下角的英寸数(inch)。</string>
+    <string>请在右图用鼠标点击决定单点坐标位置。</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -283,7 +283,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>341</y>
+     <y>411</y>
      <width>161</width>
      <height>16</height>
     </rect>
@@ -296,7 +296,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>340</y>
+     <y>410</y>
      <width>281</width>
      <height>20</height>
     </rect>
@@ -309,7 +309,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>380</y>
+     <y>450</y>
      <width>80</width>
      <height>20</height>
     </rect>
@@ -322,7 +322,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>380</y>
+     <y>450</y>
      <width>80</width>
      <height>20</height>
     </rect>
@@ -383,20 +383,75 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="placeholderText">
-    <string>请在这里输入 x y 格式的单点坐标。(使用上一条命令的-J -R)</string>
+    <string>请在这里输入 x y 格式的单点坐标。</string>
    </property>
   </widget>
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>320</y>
+     <y>390</y>
      <width>431</width>
      <height>16</height>
     </rect>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="use_file">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>121</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>使用3列文件输入</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="b_datafile">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>330</y>
+     <width>80</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选择数据文件</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="use_file_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>121</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>使用6列文件输入</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="datafile">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>290</y>
+     <width>311</width>
+     <height>101</height>
+    </rect>
    </property>
   </widget>
  </widget>

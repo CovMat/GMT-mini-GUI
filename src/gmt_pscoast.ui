@@ -123,7 +123,7 @@
   <widget class="QPushButton" name="sea_color">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>26</x>
      <y>313</y>
      <width>71</width>
      <height>20</height>
@@ -136,7 +136,7 @@
   <widget class="QPushButton" name="dry_color">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>128</x>
      <y>313</y>
      <width>71</width>
      <height>20</height>
@@ -149,7 +149,7 @@
   <widget class="QComboBox" name="D_option">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>220</x>
      <y>313</y>
      <width>131</width>
      <height>22</height>
@@ -194,7 +194,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>27</x>
      <y>340</y>
      <width>91</width>
      <height>16</height>
@@ -207,7 +207,7 @@
   <widget class="QLineEdit" name="W_pen_w">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>107</x>
      <y>340</y>
      <width>71</width>
      <height>20</height>
@@ -220,7 +220,7 @@
   <widget class="QPushButton" name="W_pen_color">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>187</x>
      <y>340</y>
      <width>80</width>
      <height>20</height>
@@ -282,7 +282,69 @@
     <string>取消</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="use_S">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>314</y>
+     <width>31</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="use_G">
+   <property name="geometry">
+    <rect>
+     <x>112</x>
+     <y>314</y>
+     <width>31</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="use_W">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>31</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>A_option</tabstop>
+  <tabstop>use_S</tabstop>
+  <tabstop>sea_color</tabstop>
+  <tabstop>use_G</tabstop>
+  <tabstop>dry_color</tabstop>
+  <tabstop>D_option</tabstop>
+  <tabstop>use_W</tabstop>
+  <tabstop>W_pen_w</tabstop>
+  <tabstop>W_pen_color</tabstop>
+  <tabstop>other_options</tabstop>
+  <tabstop>bok</tabstop>
+  <tabstop>bexit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

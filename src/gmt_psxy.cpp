@@ -1,11 +1,5 @@
 #include "gmt_psxy.h"
 #include "ui_gmt_psxy.h"
-#include <QFileDialog>
-#include <QMessageBox> //显示提示信息
-#include <iostream>
-#include <fstream>
-#include <QProcess>
-#include <QTextStream>
 
 GMT_psxy::GMT_psxy(QWidget *parent,QString S, int tw, int th, float wi, float hi) : //传入参数
     QDialog(parent,Qt::WindowTitleHint | Qt::CustomizeWindowHint), // 隐藏关闭按钮和帮助按钮
@@ -101,6 +95,7 @@ void GMT_psxy::on_draw_symbol_clicked()
         ui->S_option->setEnabled(true);
         ui->size->setEnabled(true);
         ui->g_color->setEnabled(true);
+        ui->use_G->setEnabled(true);
 
         ui->use_input->setEnabled(true);
         ui->use_mouse->setEnabled(true);
@@ -122,6 +117,7 @@ void GMT_psxy::on_draw_line_clicked()
         ui->size->setEnabled(false);
         ui->L_option->setEnabled(true);
         ui->g_color->setEnabled(false);
+        ui->use_G->setEnabled(false);
         if (ui->L_option->isChecked()){
             ui->g_color->setEnabled(true);
         }
@@ -138,12 +134,14 @@ void GMT_psxy::on_draw_line_clicked()
     }
 }
 
-void GMT_psxy::on_L_option_stateChanged(int arg1)
+void GMT_psxy::on_L_option_stateChanged()
 {
     if (ui->L_option->isChecked()){
         ui->g_color->setEnabled(true);
+        ui->use_G->setEnabled(true);
     }else{
         ui->g_color->setEnabled(false);
+        ui->use_G->setEnabled(false);
     }
 }
 
@@ -186,6 +184,26 @@ void GMT_psxy::on_b_datafile_clicked()
     QString filename = QFileDialog::getOpenFileName(this,
             tr("选择数据文件"));
     ui->datafile->setText(filename);
+}
+
+void GMT_psxy::on_use_G_stateChanged()
+{
+    if (ui->use_G->isChecked()){
+        ui->g_color->setEnabled(true);
+    }else{
+        ui->g_color->setEnabled(false);
+    }
+}
+
+void GMT_psxy::on_use_W_stateChanged()
+{
+    if (ui->use_W->isChecked()){
+        ui->W_pen_w->setEnabled(true);
+        ui->W_pen_color->setEnabled(true);
+    }else{
+        ui->W_pen_w->setEnabled(false);
+        ui->W_pen_color->setEnabled(false);
+    }
 }
 
 void GMT_psxy::on_bexit_clicked()
@@ -238,18 +256,22 @@ void GMT_psxy::on_bok_clicked()
 
     gmt_cmd += "-J -R -N ";
 
-    if (!ui->W_pen_w->text().isEmpty()){
+    if (!ui->W_pen_w->text().isEmpty() && ui->use_W->isChecked()){
         gmt_cmd += "-W"+ui->W_pen_w->text()+",";
         gmt_cmd += QString::number(W_pen_color.red())+"/"+QString::number(W_pen_color.green())+"/"+QString::number(W_pen_color.blue())+" ";
     }
     if (ui->draw_symbol->isChecked()){
-        gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
+        if (ui->use_G->isChecked()){
+            gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
+        }
         gmt_cmd += ui->S_option->currentText().split(' ').at(0)+ui->size->text()+" ";
     }
     if (ui->draw_line->isChecked()){
         if (ui->L_option->isChecked()){
             gmt_cmd += "-L ";
-            gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
+            if (ui->use_G->isChecked()){
+                gmt_cmd += "-G"+QString::number(g_color.red())+"/"+QString::number(g_color.green())+"/"+QString::number(g_color.blue())+" ";
+            }
         }
     }
 
@@ -260,4 +282,3 @@ void GMT_psxy::on_bok_clicked()
     // 关闭窗口
     this->close();
 }
-

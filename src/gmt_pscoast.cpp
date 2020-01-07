@@ -95,6 +95,35 @@ void GMT_pscoast::on_W_pen_color_clicked()
     }
 }
 
+void GMT_pscoast::on_use_S_stateChanged()
+{
+    if (ui->use_S->isChecked()){
+        ui->sea_color->setEnabled(true);
+    }else{
+        ui->sea_color->setEnabled(false);
+    }
+}
+
+void GMT_pscoast::on_use_G_stateChanged()
+{
+    if (ui->use_G->isChecked()){
+        ui->dry_color->setEnabled(true);
+    }else{
+        ui->dry_color->setEnabled(false);
+    }
+}
+
+void GMT_pscoast::on_use_W_stateChanged()
+{
+    if (ui->use_W->isChecked()){
+        ui->W_pen_w->setEnabled(true);
+        ui->W_pen_color->setEnabled(true);
+    }else{
+        ui->W_pen_w->setEnabled(false);
+        ui->W_pen_color->setEnabled(false);
+    }
+}
+
 void GMT_pscoast::on_bok_clicked()
 {
 
@@ -106,11 +135,15 @@ void GMT_pscoast::on_bok_clicked()
     if (!ui->A_option->text().isEmpty())
         gmt_cmd += "-A"+ui->A_option->text()+" ";
 
-    gmt_cmd += "-S"+QString::number(sea_color.red())+"/"+QString::number(sea_color.green())+"/"+QString::number(sea_color.blue())+" ";
-    gmt_cmd += "-G"+QString::number(dry_color.red())+"/"+QString::number(dry_color.green())+"/"+QString::number(dry_color.blue())+" ";
+    if (ui->use_S->isChecked()){
+        gmt_cmd += "-S"+QString::number(sea_color.red())+"/"+QString::number(sea_color.green())+"/"+QString::number(sea_color.blue())+" ";
+    }
+    if (ui->use_G->isChecked()){
+        gmt_cmd += "-G"+QString::number(dry_color.red())+"/"+QString::number(dry_color.green())+"/"+QString::number(dry_color.blue())+" ";
+    }
     gmt_cmd += ui->D_option->currentText().split(' ').at(0)+" ";
 
-    if (!ui->W_pen_w->text().isEmpty()){
+    if (!ui->W_pen_w->text().isEmpty() && ui->use_W->isChecked()){
         gmt_cmd += "-W"+ui->W_pen_w->text()+",";
         gmt_cmd += QString::number(W_pen_color.red())+"/"+QString::number(W_pen_color.green())+"/"+QString::number(W_pen_color.blue())+" ";
     }

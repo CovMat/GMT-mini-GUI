@@ -32,7 +32,7 @@
   <widget class="QPushButton" name="g_color">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>27</x>
      <y>30</y>
      <width>61</width>
      <height>20</height>
@@ -168,7 +168,7 @@
   <widget class="QPushButton" name="W_pen_color">
    <property name="geometry">
     <rect>
-     <x>184</x>
+     <x>226</x>
      <y>30</y>
      <width>51</width>
      <height>20</height>
@@ -181,7 +181,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>79</x>
+     <x>126</x>
      <y>31</y>
      <width>21</width>
      <height>16</height>
@@ -194,7 +194,7 @@
   <widget class="QLineEdit" name="W_pen_w">
    <property name="geometry">
     <rect>
-     <x>97</x>
+     <x>144</x>
      <y>30</y>
      <width>81</width>
      <height>20</height>
@@ -207,14 +207,14 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>31</y>
+     <x>280</x>
+     <y>32</y>
      <width>191</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#b5b5b5;&quot;&gt;-W 符号轮廓或线段宽度以及颜色&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#b5b5b5;&quot;&gt;符号轮廓或线段宽度以及颜色&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="other_options">
@@ -463,9 +463,43 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
   </widget>
+  <widget class="QCheckBox" name="use_G">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>31</y>
+     <width>51</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="use_W">
+   <property name="geometry">
+    <rect>
+     <x>111</x>
+     <y>30</y>
+     <width>21</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <tabstops>
+  <tabstop>use_G</tabstop>
   <tabstop>g_color</tabstop>
+  <tabstop>use_W</tabstop>
   <tabstop>W_pen_w</tabstop>
   <tabstop>W_pen_color</tabstop>
   <tabstop>draw_symbol</tabstop>

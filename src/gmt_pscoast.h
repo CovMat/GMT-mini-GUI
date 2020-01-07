@@ -32,6 +32,12 @@ private slots:
 
     void on_bexit_clicked();
 
+    void on_use_S_stateChanged();
+
+    void on_use_G_stateChanged();
+
+    void on_use_W_stateChanged();
+
 private:
     Ui::GMT_pscoast *ui;
     QString psfname;

@@ -4,6 +4,12 @@
 #include <QDialog>
 #include <QColorDialog>
 #include <QMouseEvent>
+#include <QFileDialog>
+#include <QMessageBox> //显示提示信息
+#include <iostream>
+#include <fstream>
+#include <QProcess>
+#include <QTextStream>
 
 namespace Ui {
 class GMT_psxy;
@@ -34,13 +40,17 @@ private slots:
 
     void on_bok_clicked();
 
-    void on_L_option_stateChanged(int arg1);
+    void on_L_option_stateChanged();
 
     void on_use_input_clicked();
 
     void on_use_mouse_clicked();
 
     void on_use_file_clicked();
+
+    void on_use_G_stateChanged();
+
+    void on_use_W_stateChanged();
 
 private:
     Ui::GMT_psxy *ui;
