@@ -20,10 +20,7 @@ void Run_GMT_CMD::dowork(){
         system(cmd.toUtf8().constData());
     }
     else{
-        QProcess process;
-        QStringList env = QProcess::systemEnvironment();
-        process.setEnvironment(env);
-        process.execute(cmd);
+        QProcess::execute(cmd);
     }
 
     /*

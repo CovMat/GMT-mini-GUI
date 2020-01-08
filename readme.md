@@ -12,7 +12,14 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 ### windows
 windows版直接双击运行exe即可
 ### Linux
-双击GMT-GUI或AppRun运行
+首先需要将GMT的运行路径添加到系统的全局环境变量中。假定用户的GMT安装在`/opt/GMT-5.4.5`，请修改`/etc/profile`(使用`su`或`sudo`以管理员权限修改)，加入如下语句以修改环境变量  
+```
+export GMT5HOME=/opt/GMT-5.4.5
+export PATH=${GMT5HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT5HOME}/lib64
+```
+本工具暂时无法识别`~/.bashrc`这样的用户个人环境变量设置，因此需要设置全局变量。  
+设置完成后需要重启电脑生效。之后双击GMT-GUI或AppRun即可运行
 
 
 ## 致谢
