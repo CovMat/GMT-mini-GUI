@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label->setScaledContents(true); // label要设置为自动缩放内容
     QFont font1;
     font1.setFamily("Courier");
-    font1.setPointSize(7);
+    font1.setPointSize(8);
     ui->cmd_list->setFont(font1);
 
 }
