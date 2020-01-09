@@ -15,19 +15,13 @@ void Run_GMT_CMD::dowork(){
         QProcess::execute(cmd);
     #endif
     */
-    QString echo_text = cmd.split(' ').at(0);
-    if (echo_text == "echo"){
-        system(cmd.toUtf8().constData());
+    QString gmt_text = cmd.split(' ').at(0);
+    if (gmt_text == "gmt"){
+        QProcess::execute(cmd); // 如果是gmt命令，用QProcess运行。
     }
     else{
-        QProcess::execute(cmd);
+        system(cmd.toUtf8().constData()); // 如果是其他系统命令，使用system执行。 QProcess无法处理 “|” 这样的管道
     }
 
-    /*
-    QProcess *pro = new QProcess;
-    pro->start(cmd);
-    pro->waitForFinished();
-    pro->close();
-    */
     emit close_ready();
 }

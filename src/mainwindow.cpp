@@ -1,14 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <iostream>
-#include <fstream>
-#include <QString>
-#include <QColor>
-#include <QFile>
-#include <QDir>
-#include <QFileDialog>
-
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -22,10 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
     cmd_num = 0; // 命令数目清零
 
     ui->label->setScaledContents(true); // label要设置为自动缩放内容
+
+    // 设置代码区字体
     QFont font1;
     font1.setFamily("Courier");
     font1.setPointSize(12);
     ui->cmd_list->setFont(font1);
+
+    // 检查GMT版本
+
 
 }
 

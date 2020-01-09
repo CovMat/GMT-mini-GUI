@@ -1,6 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+
+#include <iostream>
+#include <fstream>
+#include <QColor>
+#include <QFile>
+#include <QDir>
+#include <QFileDialog>
 #include <QMainWindow>
 #include <QString>
 #include <QPixmap> //用来显示图片

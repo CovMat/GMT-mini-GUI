@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Run_GMT_CMD.cpp \
+    check_gmt_version.cpp \
     gmt_b_option.cpp \
     gmt_custom.cpp \
     gmt_j_option.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 
 HEADERS += \
     Run_GMT_CMD.h \
+    check_gmt_version.h \
     gmt_b_option.h \
     gmt_custom.h \
     gmt_j_option.h \
@@ -49,6 +51,7 @@ HEADERS += \
     waiting_thread.h
 
 FORMS += \
+    check_gmt_version.ui \
     gmt_b_option.ui \
     gmt_custom.ui \
     gmt_j_option.ui \
