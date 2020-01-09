@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("GMT-mini-GUI beta 0.0.3");
+    this->setWindowTitle("GMT-mini-GUI 0.1.0");
 
     psfname = ""; // 清空初始化ps文件文件名
     cmd_num = 0; // 命令数目清零
