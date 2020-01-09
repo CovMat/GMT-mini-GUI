@@ -5,8 +5,13 @@
 https://github.com/CovMat/GMT-mini-GUI/releases
 
 ## 注意事项
-
-使用本工具前请先在您的系统中安装好GMT，版本最低要求为5.4。
+### GMT
+使用本工具前请先在您的系统中安装好GMT，版本最低要求为5.4。  
+安装指南：https://docs.gmt-china.org/6.0/install/ （6.0版）、https://docs.gmt-china.org/5.4/install/ （5.4版）  
+### Ghostscript
+为了保证GMT的psconvert正常运行，生成本工具需要的预览图片，用户需要安装Ghostscript。
+一般来说，如果按照上面给出的GMT安装指南完整安装的话，用户的系统中已经安装好了Ghostscript。如果没安装Ghostscript，请参照GMT安装指南安装对应系统的Ghostscript。  
+### 自行编译
 如果想自行编译源代码，请使用Qt 5.13版。已知Qt 5.14版存在bug，无法编译。
 在Mac系统中编译时，除了Qt之外，还必须同时安装xcode 10(xcode 11与Qt 5.13不兼容)。
 
