@@ -15,6 +15,8 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 为了保证GMT的psconvert正常运行，生成本工具需要的预览图片，用户需要安装Ghostscript。
 一般来说，如果按照上面给出的GMT安装指南完整安装的话，用户的系统中已经安装好了Ghostscript。如果没安装Ghostscript，请参照GMT安装指南安装对应系统的Ghostscript。
+### 自行编译
+在windows下编译时，请使用MinGW作为Qt creator的编译工具。Linux下部分发行版的系统在使用Qt 5.14时会出现与QColor有关的编译错误，如果出现这种情况请卸载安装Qt 5.13。
 
 ## 运行方法
 
@@ -38,4 +40,4 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 ## 致谢
 
-感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)编译了MacOS版本，并进行了大量测试，给出了修改意见。感谢@yjmzj为软件修改提出的宝贵意见。
+感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。感谢@yjmzj为软件修改提出的宝贵意见。
