@@ -30,4 +30,4 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 ## 致谢
 
-感谢@SeisSpath协助编译了Linux版本并进行了大量测试，给出了修改意见。感谢@yjmzj、@seisman、@core-man为软件修改提出的宝贵意见。
+感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)编译了MacOS版本，并进行了大量测试，给出了修改意见。感谢@yjmzj为软件修改提出的宝贵意见。
