@@ -66,7 +66,7 @@ void MainWindow::convert2png(int flag){
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     delete waiting_thread_ui;
     // 转换成png
-    cmd = "gmt psconvert "+psfname+".tmp -Tg -Ftmp.png";
+    cmd = "gmt psconvert "+psfname+".tmp -Tg -Ftmp";
     waiting_thread_ui = new waiting_thread(this, cmd); //将类指针实例化，创建对话框，同时将cmd传给新对话款
     waiting_thread_ui->exec(); //显示窗口， 阻塞方式
     delete waiting_thread_ui;
