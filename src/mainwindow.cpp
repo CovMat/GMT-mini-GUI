@@ -21,8 +21,17 @@ MainWindow::MainWindow(QWidget *parent)
     font1.setPointSize(12);
     ui->cmd_list->setFont(font1);
 
+    /*
     // 检查GMT版本
-
+    check_gmt_version * check_GMT = new check_gmt_version;
+    check_GMT->exec();
+    if (check_GMT->send_exit_code() == 1){
+        delete check_GMT;
+        // 检查失败，退出程序
+        QMetaObject::invokeMethod(this, "close", Qt::QueuedConnection); // 在constructor中关闭自己必须使用这种方法
+    }
+    delete check_GMT;
+    */
 
 }
 

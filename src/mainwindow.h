@@ -22,6 +22,7 @@
 #include "gmt_pstext.h"
 #include "gmt_set.h"
 #include "gmt_custom.h"
+#include "check_gmt_version.h"
 
 #define MAP_FRAME_TYPE_default "fancy"
 #define MAP_FRAME_WIDTH_default "5p"

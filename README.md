@@ -17,8 +17,10 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 ### Ghostscript
 
-为了保证GMT的psconvert正常运行，生成本工具需要的预览图片，用户需要安装Ghostscript。  
-有用户反馈指出，GMT6.0自带的Ghostscript版本太低，导致psconvert无法正常转换png格式的图片。因此我们强烈建议**所有用户在使用本工具前都要将Ghostscript升级到最新版**。  
+为了保证GMT的psconvert正常运行，生成本工具需要的预览图片，用户需要安装Ghostscript。
+
+有用户反馈指出，GMT6.0自带的Ghostscript版本太低，导致psconvert无法正常转换png格式的图片。因此我们强烈建议**所有用户在使用本工具前都要将Ghostscript升级到最新版**。
+
 Windows平台的最新版Ghostscript下载地址为：https://www.ghostscript.com/download/gsdnld.html  
 Linux平台建议使用自带的软件仓库工具升级Ghostscript。  
 Mac用户请参考社区指南安装Ghostscript：https://docs.gmt-china.org/6.0/install/macOS/#homebrew
