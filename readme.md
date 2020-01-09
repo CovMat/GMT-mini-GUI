@@ -19,7 +19,7 @@ export PATH=${GMT5HOME}/bin:$PATH
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT5HOME}/lib64
 ```
 本工具暂时无法识别`~/.bashrc`这样的用户个人环境变量设置，因此需要设置全局变量。  
-设置完成后需要重启电脑生效。之后双击GMT-GUI或AppRun即可运行
+设置完成后需要重启电脑生效。之后双击`GMT-GUI`或`AppRun`即可运行
 
 
 ## 致谢
