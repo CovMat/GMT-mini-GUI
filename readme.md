@@ -18,7 +18,8 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 ### Linux
 
-下载安装包，解压，打开终端进入文件夹，终端运行 `./GMT-GUI`.如果不从终端运行的话，无法继承环境变量PATH，会出现找不到GMT路径的错误。
+下载安装包，解压，打开终端进入文件夹，终端运行 `./GMT-GUI`。  
+如果不从终端运行的话（例如直接双击运行），无法继承环境变量PATH，会出现找不到GMT路径的错误。
 
 ### macOS
 
@@ -27,7 +28,7 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 ```
 ./GMT-GUI.app/Contents/MacOS/GMT-GUI
 ```
-如果不从终端运行的话，无法继承环境变量PATH，会出现找不到GMT路径的错误。
+如果不从终端运行的话（例如直接双击运行），无法继承环境变量PATH，会出现找不到GMT路径的错误。
 
 ## 致谢
 
