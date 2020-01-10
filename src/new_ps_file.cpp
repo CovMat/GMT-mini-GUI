@@ -86,24 +86,24 @@ void new_ps_file::on_ok_button_clicked()
     this->close();
 }
 
-void new_ps_file::on_w_input_textChanged()
+void new_ps_file::on_w_input_textEdited()
 {
-    ui->w_input_cm->setText(QString::number( ui->w_input->text().toFloat() * 2.54 ));
+    ui->w_input_cm->setText(QString::number( ui->w_input->text().toFloat() * 2.54, 'f', 2 ));
 }
 
-void new_ps_file::on_h_input_textChanged()
+void new_ps_file::on_h_input_textEdited()
 {
-    ui->h_input_cm->setText(QString::number( ui->h_input->text().toFloat() * 2.54 ));
+    ui->h_input_cm->setText(QString::number( ui->h_input->text().toFloat() * 2.54, 'f', 2 ));
 }
 
-void new_ps_file::on_w_input_cm_textChanged()
+void new_ps_file::on_w_input_cm_textEdited()
 {
-    ui->w_input->setText(QString::number( ui->w_input_cm->text().toFloat() / 2.54 ));
+    ui->w_input->setText(QString::number( ui->w_input_cm->text().toFloat() / 2.54, 'f', 2 ));
 }
 
-void new_ps_file::on_h_input_cm_textChanged()
+void new_ps_file::on_h_input_cm_textEdited()
 {
-    ui->h_input->setText(QString::number( ui->h_input_cm->text().toFloat() / 2.54 ));
+    ui->h_input->setText(QString::number( ui->h_input_cm->text().toFloat() / 2.54, 'f', 2 ));
 }
 
 
@@ -111,6 +111,8 @@ void new_ps_file::on_A4_clicked()
 {
     ui->w_input_cm->setText("21");
     ui->h_input_cm->setText("29.7");
+    ui->w_input->setText("8.27");
+    ui->h_input->setText("11.69");
 }
 
 
