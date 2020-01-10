@@ -19,7 +19,7 @@ https://github.com/CovMat/GMT-mini-GUI/releases
 
 为了保证GMT的psconvert正常运行，生成本工具需要的预览图片，用户需要安装Ghostscript。
 
-Windows平台的最新版Ghostscript下载地址为：https://www.ghostscript.com/download/gsdnld.html
+Windows平台的最新版Ghostscript下载地址为：https://www.ghostscript.com/download/gsdnld.html 。
 Linux平台建议使用自带的软件仓库工具升级Ghostscript。
 Mac用户请参考社区指南安装Ghostscript：https://docs.gmt-china.org/6.0/install/macOS/#homebrew
 
@@ -79,7 +79,7 @@ make build
 
 ## 致谢
 
-感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。感谢@yjmzj为软件修改提出的宝贵意见。
+感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。[@seisman](https://github.com/seisman)另外还贡献了本项目的README文档与Travis脚本。感谢@yjmzj为软件修改提出的宝贵意见。
 
 ## 许可协议
 
