@@ -45,6 +45,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void resizeEvent(QResizeEvent *event); // 窗口大小改变事件，重新显示预览图片
 
 private slots:
     void on_new_PS_file_clicked();
@@ -80,7 +81,7 @@ private slots:
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
     void convert2png(); // 用于生成png文件进行预览
-    void display_preview(); // 显示预览
+    void display_preview(int run_psconvert); // 显示预览。
 
 private:
     Ui::MainWindow *ui;

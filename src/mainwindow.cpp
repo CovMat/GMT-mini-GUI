@@ -39,6 +39,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::resizeEvent(QResizeEvent *event) // 窗口大小改变事件，重新显示预览图片
+{
+    if ( cmd_num == 0 )
+        return; // 如果一条命令都没执行，则不显示图片（png还没生成）
+    display_preview(0);
+}
+
 // 自定义函数，用于设置各个GMT绘图按钮是否有效
 void MainWindow::set_gmt_button_enable(bool flag){
     ui->pscoast->setEnabled(flag);
@@ -80,14 +87,15 @@ void MainWindow::convert2png(){
 }
 
 // 自定义函数，显示预览
-void MainWindow::display_preview(){
-    convert2png();
+void MainWindow::display_preview(int run_psconvert){
+    if (run_psconvert == 1)
+        convert2png();
 
     QPixmap pix("tmp.png");
     int hp = pix.size().height();
     int wp = pix.size().width();
-    int hh = 470;
-    int ww = 520;
+    int hh = ui->label->size().height();
+    int ww = ui->label->size().width();
 
     // 检查tmp.png是否存在
     if ( !QFile::exists("tmp.png") || hp == 0 || wp == 0 ){
@@ -158,7 +166,7 @@ void MainWindow::on_new_PS_file_clicked()
         // 脚本导出按钮有效化
         ui->export_cmd->setEnabled(true);
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -267,7 +275,7 @@ void MainWindow::on_undo_confirm_clicked()
     // 将确认按钮无效化
     ui->undo_confirm->setEnabled(false);
     // 预览
-    display_preview();
+    display_preview(1);
 }
 
 void MainWindow::on_pscoast_clicked()
@@ -286,7 +294,7 @@ void MainWindow::on_pscoast_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -309,7 +317,7 @@ void MainWindow::on_psbasemap_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -332,7 +340,7 @@ void MainWindow::on_psxy_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -355,7 +363,7 @@ void MainWindow::on_pssac_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -378,7 +386,7 @@ void MainWindow::on_pstext_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
@@ -442,7 +450,7 @@ void MainWindow::on_custom_clicked()
         ui->cmd_list->addItem(cmd); // 将命令添加到列表中
         cmd_num++; //命令个数+1
         // 预览
-        display_preview();
+        display_preview(1);
     }
 
     delete waiting_thread_ui;
