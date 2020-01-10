@@ -79,7 +79,7 @@ make build
 
 ## 致谢
 
-感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。[@seisman](https://github.com/seisman)另外还贡献了本项目的README文档与Travis脚本。感谢@yjmzj为软件修改提出的宝贵意见。
+感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。[@seisman](https://github.com/seisman)另外还贡献了本项目的README文档与Travis脚本。感谢[@yabbpy](https://github.com/yabbpy)协助设计了UI界面。感谢@yjmzj为软件修改提出的宝贵意见。
 
 ## 许可协议
 
