@@ -16,29 +16,29 @@ check_gmt_version::check_gmt_version(QWidget *parent) :
     //运行gmt --version，获取标准输出和标准错误信息
     QProcess p;
     QString stdout_info = "", stderr_info = "";
-    int ret_code = 777;
+    //int ret_code = 777;
 
-    ret_code = p.execute("gmt --version");
-    //p.start("gmt --version");
-    //p.waitForFinished();
-    //ret_code = p.error();
+    p.start("gmt --version");
+    p.waitForFinished();
 
+    stdout_info = p.readAllStandardOutput();
+    stderr_info = p.readAllStandardError();
+    stdout_info.remove("\n");
 
-    //if (p.waitForStarted(-1)) {
-        while(p.waitForReadyRead(-1)) {
-            stdout_info += p.readAllStandardOutput();
-            stderr_info += p.readAllStandardError();
-        }
-    //}
-
-    //stdout_info = p.readAllStandardOutput();
-    //stderr_info = p.readAllStandardError();
-
-    if ( !stderr_info.isEmpty() || ret_code == -2 || ret_code == -1 ){
+    if ( !stderr_info.isEmpty() || stdout_info.isEmpty() ){
         ui->info->setText("检查失败，查找不到GMT，或GMT无法运行。可能原因:");
         ui->info->append("1. GMT未安装，或未正确安装");
         ui->info->append("2. 环境变量PATH未正确配置");
         ui->info->append("3. Linux/Mac用户没有从终端启动本程序，导致无法继承PATH");
+        ui->info->append("");
+        ui->info->append(stderr_info);
+        ui->bexit->setEnabled(true);
+        exit_code = 1;
+    }
+    else if ( stdout_info < "5.4.0" ){
+        ui->info->setText("GMT版本太低，或您使用的是测试开发版。请升级到正式版GMT");
+        ui->info->append("GMT最低版本要求5.4.0");
+        ui->info->append("本机安装的版本："+stdout_info);
         ui->bexit->setEnabled(true);
         exit_code = 1;
     }

@@ -21,17 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
     font1.setPointSize(12);
     ui->cmd_list->setFont(font1);
 
-    /*
-    // 检查GMT版本
+    // 检查GMT版本，检查GMT是否存在
     check_gmt_version * check_GMT = new check_gmt_version;
     check_GMT->exec();
     if (check_GMT->send_exit_code() == 1){
         delete check_GMT;
         // 检查失败，退出程序
         QMetaObject::invokeMethod(this, "close", Qt::QueuedConnection); // 在constructor中关闭自己必须使用这种方法
+                                                                        // 主窗口用这种方式似乎有问题，属于异常退出
     }
     delete check_GMT;
-    */
 
 }
 
@@ -55,7 +54,7 @@ void MainWindow::set_gmt_button_enable(bool flag){
 }
 
 // 自定义函数，用于将ps转化为png
-void MainWindow::convert2png(int flag){
+void MainWindow::convert2png(){
 
     //复制一份当前文件
     QDir *createfile     = new QDir;
@@ -82,13 +81,26 @@ void MainWindow::convert2png(int flag){
 
 // 自定义函数，显示预览
 void MainWindow::display_preview(){
-    convert2png(0);
+    convert2png();
 
     QPixmap pix("tmp.png");
     int hp = pix.size().height();
     int wp = pix.size().width();
     int hh = 470;
     int ww = 520;
+
+    // 检查tmp.png是否存在
+    if ( !QFile::exists("tmp.png") || hp == 0 || wp == 0 ){
+        QMessageBox msgBox;
+        QString str;
+        str = "预览图片生成失败。可能原因:\n";
+        str+= "1. 本机未安装Ghostscript或Ghostscript版本太低，请升级安装Ghostscript\n";
+        str+= "2. tmp.png文件被删除\n";
+        str+= "3. 您输入的GMT命令有误，请仔细检查并撤销\n";
+        msgBox.setText(str);
+        msgBox.exec();
+        return;
+    }
 
     if ( hp/wp > hh/ww )
         ww = hh*wp/hp;

@@ -13,6 +13,7 @@
 #include <QPixmap> //用来显示图片
 #include <QDesktopServices>
 #include <QUrl>
+#include <QMessageBox> //显示提示信息
 #include "new_ps_file.h" // 引用类的声明，所引用的是新建ps文件窗口的类
 #include "waiting_thread.h" // 引用类的声明，用于弹出等待线程运行的窗口
 #include "gmt_pscoast.h"
@@ -78,7 +79,7 @@ private slots:
 
 private:
     void set_gmt_button_enable(bool); // 用于设置各个gmt绘图按钮是否有效
-    void convert2png(int); // 用于生成png文件进行预览
+    void convert2png(); // 用于生成png文件进行预览
     void display_preview(); // 显示预览
 
 private:
