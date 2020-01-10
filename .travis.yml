@@ -26,6 +26,20 @@ jobs:
       before_install:
       # Travis CI already has qt 5.13 installed
       - brew reinstall qt
+
 script:
+  # Check qmake --version
   - qmake --version
+  # Building
   - make build
+
+after_success:
+  # Packaging
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then make macos_package; fi
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: if [ "$TRAVIS_OS_NAME" = "osx" ]; then curl -T build/GMT-GUI.app.zip -u $FTP_USER:$FTP_PASSWORD ftp://home.ustc.edu.cn/public_html/; fi
+  on:
+    branch: master
