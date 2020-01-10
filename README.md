@@ -23,13 +23,9 @@ Windows平台的最新版Ghostscript下载地址为：https://www.ghostscript.co
 Linux平台建议使用自带的软件仓库工具升级Ghostscript。
 Mac用户请参考社区指南安装Ghostscript：https://docs.gmt-china.org/6.0/install/macOS/#homebrew
 
-### 自行编译
-
-在windows下编译时，请使用MinGW作为Qt creator的编译工具。Linux下部分发行版的系统在使用Qt 5.14时会出现与QColor有关的编译错误，如果出现这种情况请卸载安装Qt 5.13。
-
 ## 运行方法
 
-### windows
+### Windows
 
 下载安装包，解压，直接双击运行exe即可。
 
@@ -45,6 +41,41 @@ Mac用户请参考社区指南安装Ghostscript：https://docs.gmt-china.org/6.0
 ./GMT-GUI.app/Contents/MacOS/GMT-GUI
 ```
 如果不从终端运行的话（例如直接双击运行），无法继承环境变量PATH，会出现找不到GMT路径的错误。
+
+## 编译指南
+
+### Windows
+
+TBD。
+
+注意：在windows下编译时，请使用MinGW作为Qt creator的编译工具。
+
+### Linux
+
+TBD。
+
+注意：Linux下部分发行版的系统在使用Qt 5.14时会出现与QColor有关的编译错误，如果出现这种情况请卸载安装Qt 5.13。
+
+### macOS
+
+macOS下需要安装 Xcode Command Line Tools 和 Qt。
+
+若你是Homebrew用户，则你已经安装了 Xcode Command Line Tools。执行如下命令以安装Qt:
+```
+brew install qt
+```
+
+安装完成后，向 `~/.bash_profile` 中加入如下语句将Qt添加到PATH路径中：
+```
+export PATH="/usr/local/opt/qt/bin:$PATH"
+```
+
+终端执行如下命令则会编译该项目：
+```
+make build
+```
+生成的可执行程序位于 `build/GMT-GUI.app/Contents/MacOS/GMT-GUI`.
+
 
 ## 致谢
 
