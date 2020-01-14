@@ -56,19 +56,19 @@ void MainWindow::resizeEvent(QResizeEvent *event) // 窗口大小改变事件，
     int w_cmd = ui->cmd_list->width();
     int h_cmd = ui->cmd_list->height();
     h_cmd = H_CMD_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给代码区
-    w_cmd = W_CMD_init + std::round(( ww - WIDTH_init ) / 3); // 水平方向新增的宽度，1/3给代码区
+    w_cmd = W_CMD_init + round(( ww - WIDTH_init ) / 3); // 水平方向新增的宽度，1/3给代码区
     ui->cmd_list->resize(w_cmd, h_cmd);
 
     // 调整按钮，标签，预览区的位置
     ui->export_cmd->move(X_export_cmd_init, Y_export_cmd_init +  hh - HEIGHT_init );
-    ui->label_3->move( X_label_init + std::round(( ww - WIDTH_init ) / 3), Y_label_init );
-    ui->label->move( X_preview_init + std::round(( ww - WIDTH_init ) / 3), Y_preview_init );
+    ui->label_3->move( X_label_init + round(( ww - WIDTH_init ) / 3), Y_label_init );
+    ui->label->move( X_preview_init + round(( ww - WIDTH_init ) / 3), Y_preview_init );
 
     // 调整预览区大小
     int w_preview = ui->label->width();
     int h_preview = ui->label->height();
     h_preview = H_PREVIEW_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给预览区
-    w_preview = W_PREVIEW_init + std::round(( ww - WIDTH_init ) / 3 * 2); // 水平方向新增的宽度，2/3给预览区
+    w_preview = W_PREVIEW_init + round(( ww - WIDTH_init ) / 3 * 2); // 水平方向新增的宽度，2/3给预览区
     ui->label->resize( w_preview, h_preview );
 
     if ( cmd_num > 0 )
