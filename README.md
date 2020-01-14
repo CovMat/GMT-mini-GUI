@@ -46,13 +46,15 @@ Mac用户请参考社区指南安装Ghostscript：https://docs.gmt-china.org/6.0
 
 ### Windows
 
-TBD。
+进入 http://mirrors.ustc.edu.cn/qtproject/official_releases/qt/5.13/5.13.1/  
+下载`qt-opensource-windows-x86-5.13.1.exe`安装
 
 注意：在windows下编译时，请使用MinGW作为Qt creator的编译工具。
 
 ### Linux
 
-TBD。
+在上面相同地址，下载`qt-opensource-linux-x64-5.13.1.run`，安装。  
+由于Linux各个发行版众多，需要另外安装的软件依赖请参阅 https://doc.qt.io/qt-5/linux.html
 
 注意：Linux下部分发行版的系统在使用Qt 5.14时会出现与QColor有关的编译错误，如果出现这种情况请卸载安装Qt 5.13。
 
