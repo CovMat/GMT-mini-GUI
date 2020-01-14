@@ -1,11 +1,10 @@
 #include "gmt_pstext.h"
 #include "ui_gmt_pstext.h"
 
-GMT_pstext::GMT_pstext(QWidget *parent,QString S, int tw, int th, float wi, float hi) : //传入参数
-    QDialog(parent,Qt::WindowTitleHint | Qt::CustomizeWindowHint), // 隐藏关闭按钮和帮助按钮
+GMT_pstext::GMT_pstext(QWidget *parent,QString S, float wi, float hi) : //传入参数
+    //QDialog(parent,Qt::WindowTitleHint | Qt::CustomizeWindowHint | Qt::WindowMaximizeButtonHint), // 隐藏关闭按钮和帮助按钮
+    QDialog(parent,Qt::WindowMaximizeButtonHint),
     psfname(S), // 传入参数赋值给ps文件名
-    w(tw),
-    h(th),
     image_w(wi),
     image_h(hi),
     ui(new Ui::GMT_pstext)
@@ -18,12 +17,18 @@ GMT_pstext::GMT_pstext(QWidget *parent,QString S, int tw, int th, float wi, floa
     //
     ui->datafile->setPlaceholderText("3列文件的格式为：x  y  text。 \n6列文件的格式为：x  y  font  angle  justify  text");
 
-    ui->label->resize(w,h);
     ui->label->setScaledContents(true); // label要设置为自动缩放内容
-    // 显示图像
-    QPixmap pix("tmp.png");
-    ui->label->setPixmap(pix);
 
+    //初始化窗口大小，限制窗口最小尺寸
+    this->setMinimumSize(WIDTH_init,HEIGHT_init);
+    this->resize(WIDTH_init,HEIGHT_init);
+    // 初始化预览区尺寸
+    ui->label->resize(W_PREVIEW_init, H_PREVIEW_init);
+
+    // 预览图像
+    display_preview();
+
+    // 设置颜色
     text_color.setRgb(0,0,0);
     ui->text_color->setStyleSheet(QString("color: %1").arg(text_color.name()));
 }
@@ -31,6 +36,58 @@ GMT_pstext::GMT_pstext(QWidget *parent,QString S, int tw, int th, float wi, floa
 GMT_pstext::~GMT_pstext()
 {
     delete ui;
+}
+
+void GMT_pstext::resizeEvent(QResizeEvent *event) // 窗口大小改变事件，重新显示预览图片
+{
+    //GMT_pstext::resizeEvent(event);
+    // dialog类型不能有这句话
+
+    // 获取变化后的大小
+    int ww = this->width();
+    int hh = this->height();
+
+    // 调整预览区大小
+    int w_preview = ui->label->width();
+    int h_preview = ui->label->height();
+    h_preview = H_PREVIEW_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给预览区
+    w_preview = W_PREVIEW_init + ww - WIDTH_init; // 水平方向新增的宽度，全部给预览区
+    ui->label->resize( w_preview, h_preview );
+
+    // 重新预览图像
+    display_preview();
+}
+
+// 自定义函数，显示预览
+void GMT_pstext::display_preview(){
+    QPixmap pix("tmp.png");
+    int hp = pix.size().height();
+    int wp = pix.size().width();
+    int hh = ui->label->size().height();
+    int ww = ui->label->size().width();
+
+    // 检查tmp.png是否存在
+    if ( !QFile::exists("tmp.png") || hp == 0 || wp == 0 ){
+        QMessageBox msgBox;
+        QString str;
+        str = "预览图片生成失败。可能原因:\n";
+        str+= "1. 本机未安装Ghostscript或Ghostscript版本太低，请升级安装Ghostscript\n";
+        str+= "2. tmp.png文件被删除\n";
+        str+= "3. 您输入的GMT命令有误，请仔细检查并撤销\n";
+        msgBox.setText(str);
+        msgBox.exec();
+        return;
+    }
+
+    if ( hp/wp > hh/ww )
+        ww = hh*wp/hp;
+    else
+        hh = hp*ww/wp;
+
+    ui->label->resize(ww,hh);
+    //QPixmap dest=pix.scaled(label->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+    // 注意不能使用QPixmap的等比例缩放，而要让label去适应pixmap的比例。因为实际使用发现使用前者会导致图片质量严重下降
+    ui->label->setPixmap(pix);
 }
 
 // 自定义鼠标按下事件处理
@@ -42,6 +99,8 @@ void GMT_pstext::mousePressEvent(QMouseEvent *event){
         int labely = ui->label->pos().y();
         int mx = pt.x(); // 鼠标点击坐标
         int my = pt.y();
+        int w = ui->label->width();
+        int h = ui->label->height();
         // 如果不在图片范围内则直接退出函数
         if ( mx < labelx || labelx + w < mx || my < labely || labely + h < my )
             return;

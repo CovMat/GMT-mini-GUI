@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <math.h>
 #include <QColor>
 #include <QFile>
 #include <QDir>
@@ -11,6 +12,7 @@
 #include <QMainWindow>
 #include <QString>
 #include <QPixmap> //用来显示图片
+#include <QPicture>
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMessageBox> //显示提示信息
@@ -33,6 +35,19 @@
 #define MAP_LABEL_OFFSET_default "8p"
 #define FONT_ANNOT_PRIMARY_default "12p,Helvetica,black"
 #define FONT_LABEL_default "16p,Helvetica,black"
+
+#define WIDTH_init 1006
+#define HEIGHT_init 649
+#define W_CMD_init 451
+#define H_CMD_init 471
+#define W_PREVIEW_init 521
+#define H_PREVIEW_init 471
+#define X_export_cmd_init 180
+#define Y_export_cmd_init 620
+#define X_label_init 470
+#define Y_label_init 115
+#define X_preview_init 470
+#define Y_preview_init 140
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

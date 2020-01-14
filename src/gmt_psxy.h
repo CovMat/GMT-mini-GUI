@@ -11,6 +11,11 @@
 #include <QProcess>
 #include <QTextStream>
 
+#define WIDTH_init 1000
+#define HEIGHT_init 600
+#define W_PREVIEW_init 531
+#define H_PREVIEW_init 571
+
 namespace Ui {
 class GMT_psxy;
 }
@@ -20,10 +25,11 @@ class GMT_psxy : public QDialog
     Q_OBJECT
 
 public:
-    explicit GMT_psxy(QWidget *parent,QString S,int tw, int th, float wi, float hi); // 传入参数
+    explicit GMT_psxy(QWidget *parent,QString S, float wi, float hi); // 传入参数
     ~GMT_psxy();
     QString send_gmt_cmd(){return gmt_cmd;} // 定义函数，用于向主窗体返回GMT命令字符串
     void mousePressEvent(QMouseEvent *event); // 鼠标按下事件
+    void resizeEvent(QResizeEvent *event); // 窗口大小改变事件，重新显示预览图片
 
 private slots:
     void on_g_color_clicked();
@@ -53,10 +59,11 @@ private slots:
     void on_use_W_stateChanged();
 
 private:
+    void display_preview(); // 显示预览。
+
+private:
     Ui::GMT_psxy *ui;
     QString psfname;
-    int w;
-    int h;
     float image_w;
     float image_h;
     QString gmt_cmd; // 向主窗体返回的变量，生成的GMT命令字符串

@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("GMT-mini-GUI 0.1.0");
+    this->setWindowTitle("GMT-mini-GUI 0.2.0");
 
     psfname = ""; // 清空初始化ps文件文件名
     cmd_num = 0; // 命令数目清零
@@ -20,6 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
     font1.setFamily("Courier");
     font1.setPointSize(12);
     ui->cmd_list->setFont(font1);
+
+    //初始化窗口大小，限制窗口最小尺寸
+    this->setMinimumSize(WIDTH_init,HEIGHT_init);
+    this->resize(WIDTH_init,HEIGHT_init);
 
     // 检查GMT版本，检查GMT是否存在
     check_gmt_version * check_GMT = new check_gmt_version;
@@ -39,12 +43,38 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::resizeEvent(QResizeEvent *event) // 窗口大小改变事件，重新显示预览图片
 {
-    if ( cmd_num == 0 )
-        return; // 如果一条命令都没执行，则不显示图片（png还没生成）
-    display_preview(0);
+    QMainWindow::resizeEvent(event);
+
+    // 获取变化后的大小
+    int ww = this->width();
+    int hh = this->height();
+
+    // 调整代码区大小
+    int w_cmd = ui->cmd_list->width();
+    int h_cmd = ui->cmd_list->height();
+    h_cmd = H_CMD_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给代码区
+    w_cmd = W_CMD_init + std::round(( ww - WIDTH_init ) / 3); // 水平方向新增的宽度，1/3给代码区
+    ui->cmd_list->resize(w_cmd, h_cmd);
+
+    // 调整按钮，标签，预览区的位置
+    ui->export_cmd->move(X_export_cmd_init, Y_export_cmd_init +  hh - HEIGHT_init );
+    ui->label_3->move( X_label_init + std::round(( ww - WIDTH_init ) / 3), Y_label_init );
+    ui->label->move( X_preview_init + std::round(( ww - WIDTH_init ) / 3), Y_preview_init );
+
+    // 调整预览区大小
+    int w_preview = ui->label->width();
+    int h_preview = ui->label->height();
+    h_preview = H_PREVIEW_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给预览区
+    w_preview = W_PREVIEW_init + std::round(( ww - WIDTH_init ) / 3 * 2); // 水平方向新增的宽度，2/3给预览区
+    ui->label->resize( w_preview, h_preview );
+
+    if ( cmd_num > 0 )
+        display_preview(0); // 有命令执行过的情况下，才重新执行预览，
 }
+
 
 // 自定义函数，用于设置各个GMT绘图按钮是否有效
 void MainWindow::set_gmt_button_enable(bool flag){
@@ -114,11 +144,11 @@ void MainWindow::display_preview(int run_psconvert){
         ww = hh*wp/hp;
     else
         hh = hp*ww/wp;
+
     ui->label->resize(ww,hh);
     //QPixmap dest=pix.scaled(label->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
     // 注意不能使用QPixmap的等比例缩放，而要让label去适应pixmap的比例。因为实际使用发现使用前者会导致图片质量严重下降
     ui->label->setPixmap(pix);
-
 }
 
 void MainWindow::on_new_PS_file_clicked()
@@ -167,6 +197,9 @@ void MainWindow::on_new_PS_file_clicked()
         ui->export_cmd->setEnabled(true);
         // 预览
         display_preview(1);
+        // 强制触发一次窗口大小变化事件，目的是重新调整预览区label大小
+        this->resize(this->size() - QSize(1,1));
+        this->resize(this->size() + QSize(1,1));
     }
 
     delete waiting_thread_ui;
@@ -276,6 +309,9 @@ void MainWindow::on_undo_confirm_clicked()
     ui->undo_confirm->setEnabled(false);
     // 预览
     display_preview(1);
+    // 强制触发一次窗口大小变化事件，目的是重新调整预览区label大小
+    this->resize(this->size() - QSize(1,1));
+    this->resize(this->size() + QSize(1,1));
 }
 
 void MainWindow::on_pscoast_clicked()
@@ -326,7 +362,7 @@ void MainWindow::on_psbasemap_clicked()
 
 void MainWindow::on_psxy_clicked()
 {
-    GMT_psxy * GMT_psxy_ui = new GMT_psxy(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给psxy对话框
+    GMT_psxy * GMT_psxy_ui = new GMT_psxy(this, psfname, image_w, image_h); // 将文件名传给psxy对话框
     GMT_psxy_ui->exec();
 
     QString cmd = GMT_psxy_ui->send_gmt_cmd();
@@ -372,7 +408,7 @@ void MainWindow::on_pssac_clicked()
 
 void MainWindow::on_pstext_clicked()
 {
-    GMT_pstext * GMT_pstext_ui = new GMT_pstext(this, psfname, ui->label->width(), ui->label->height(), image_w, image_h); // 将文件名传给pstext对话框
+    GMT_pstext * GMT_pstext_ui = new GMT_pstext(this, psfname, image_w, image_h); // 将文件名传给pstext对话框
     GMT_pstext_ui->exec();
 
     QString cmd = GMT_pstext_ui->send_gmt_cmd();
