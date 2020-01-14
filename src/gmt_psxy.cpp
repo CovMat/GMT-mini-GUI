@@ -22,10 +22,10 @@ GMT_psxy::GMT_psxy(QWidget *parent,QString S, float wi, float hi) : //传入参�
     ui->label->setScaledContents(true); // label要设置为自动缩放内容
 
     //初始化窗口大小，限制窗口最小尺寸
-    this->setMinimumSize(WIDTH_init,HEIGHT_init);
-    this->resize(WIDTH_init,HEIGHT_init);
+    this->setMinimumSize(WIDTH_init_psxy,HEIGHT_init_psxy);
+    this->resize(WIDTH_init_psxy,HEIGHT_init_psxy);
     // 初始化预览区尺寸
-    ui->label->resize(W_PREVIEW_init, H_PREVIEW_init);
+    ui->label->resize(W_PREVIEW_init_psxy, H_PREVIEW_init_psxy);
     // 预览图像
     display_preview();
 
@@ -45,8 +45,8 @@ void GMT_psxy::resizeEvent(QResizeEvent *event) // 窗口大小改变事件，�
     // 调整预览区大小
     int w_preview = ui->label->width();
     int h_preview = ui->label->height();
-    h_preview = H_PREVIEW_init + hh - HEIGHT_init; // 垂直方向新增的高度，全部给预览区
-    w_preview = W_PREVIEW_init + ww - WIDTH_init; // 水平方向新增的宽度，全部给预览区
+    h_preview = H_PREVIEW_init_psxy + hh - HEIGHT_init_psxy; // 垂直方向新增的高度，全部给预览区
+    w_preview = W_PREVIEW_init_psxy + ww - WIDTH_init_psxy; // 水平方向新增的宽度，全部给预览区
     ui->label->resize( w_preview, h_preview );
 
     // 重新预览图像

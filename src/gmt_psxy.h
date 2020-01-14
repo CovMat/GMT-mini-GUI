@@ -11,10 +11,10 @@
 #include <QProcess>
 #include <QTextStream>
 
-#define WIDTH_init 1000
-#define HEIGHT_init 600
-#define W_PREVIEW_init 531
-#define H_PREVIEW_init 571
+#define WIDTH_init_psxy 1000
+#define HEIGHT_init_psxy 600
+#define W_PREVIEW_init_psxy 531
+#define H_PREVIEW_init_psxy 571
 
 namespace Ui {
 class GMT_psxy;

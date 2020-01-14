@@ -15,10 +15,10 @@
 #include <QTextStream>
 #include <QFileDialog>
 
-#define WIDTH_init 1000
-#define HEIGHT_init 500
-#define W_PREVIEW_init 531
-#define H_PREVIEW_init 471
+#define WIDTH_init_pstext 1000
+#define HEIGHT_init_pstext 500
+#define W_PREVIEW_init_pstext 531
+#define H_PREVIEW_init_pstext 471
 
 namespace Ui {
 class GMT_pstext;
