@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     delete check_GMT;
 
     // 检测窗口关闭后，需要让主窗口重新提升到最前
+    this->activateWindow();
     this->raise();
 }
 

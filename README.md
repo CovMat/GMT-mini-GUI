@@ -83,6 +83,8 @@ make build
 
 感谢[@SeisSpath](https://github.com/SeisSpath)协助编译了Linux版本，[@seisman](https://github.com/seisman)、[@core-man](https://github.com/core-man)、[@SeisPider](https://github.com/SeisPider)、[@Seisboy](https://github.com/Seisboy)编译了MacOS版本，并进行了大量测试，给出了修改意见。[@seisman](https://github.com/seisman)另外还贡献了本项目的README文档与Travis脚本。感谢[@yabbpy](https://github.com/yabbpy)协助设计了UI界面。感谢[@yjmzj](https://github.com/yjmzj)为软件修改提出的宝贵意见。
 
+这个工具的诞生离不开GMT中文社区的技术资料整理：https://gmt-china.org/
+
 ## 许可协议
 
 本项目使用 [MIT license](LICENSE) 许可协议。
