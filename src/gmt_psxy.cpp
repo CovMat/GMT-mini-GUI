@@ -116,7 +116,7 @@ void GMT_psxy::mousePressEvent(QMouseEvent *event){
         out.close();
         // 换算到地理坐标
         QFile::remove("gmt-mini-project.txt");
-        QProcess::execute("gmt mapproject -J -R -Di -I --IO_COL_SEPARATOR=space gmt-mini-coordinate.txt > gmt-mini-project.txt");
+        QProcess::execute("gmt mapproject -J -R -Di -I --IO_COL_SEPARATOR=space gmt-mini-coordinate.txt --FORMAT_FLOAT_OUT=%.6lg > gmt-mini-project.txt");
         // 读取转换后的地理坐标
         std::ifstream fin;
         fin.open("gmt-mini-project.txt");
