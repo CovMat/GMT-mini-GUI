@@ -6,7 +6,8 @@
 
 ## 下载地址
 
-https://github.com/CovMat/GMT-mini-GUI/releases
+https://github.com/CovMat/GMT-mini-GUI/releases  
+http://home.ustc.edu.cn/~cxh757/ (中科大服务器)
 
 ## 注意事项
 
