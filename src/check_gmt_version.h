@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QProcess>
+#include <QRegExp>
 
 namespace Ui {
 class check_gmt_version;
