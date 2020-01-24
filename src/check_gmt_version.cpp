@@ -26,7 +26,7 @@ check_gmt_version::check_gmt_version(QWidget *parent) :
     stdout_info.remove("\n");
 
     // 定义正则表达式匹配版本号
-    QRegExp exp("^\\d\\.\\d\\.\\d$");
+    QRegExp exp("^\\d\\.\\d\\.\\d"); // 去除对开发版的限制
 
     if ( !stderr_info.isEmpty() || stdout_info.isEmpty() ){
         ui->info->setText("检查失败，查找不到GMT，或GMT无法运行。可能原因:");
@@ -39,10 +39,11 @@ check_gmt_version::check_gmt_version(QWidget *parent) :
         exit_code = 1;
     }
     else if ( stdout_info < "5.4.0" || !exp.exactMatch(stdout_info) ){
-        ui->info->setText("GMT版本太低，或您使用的是测试开发版。请升级到正式版GMT");
+        //ui->info->setText("GMT版本太低，或您使用的是测试开发版。请升级到正式版GMT");
+        ui->info->setText("GMT版本太低,请升级GMT");
         ui->info->append("GMT最低版本要求 5.4.0");
         ui->info->append("本机安装的版本： "+stdout_info);
-        ui->info->append("请注意正式版的版本号是三个被.隔开的数字，后面不带尾巴");
+        //ui->info->append("请注意正式版的版本号是三个被.隔开的数字，后面不带尾巴");
         ui->bexit->setEnabled(true);
         exit_code = 1;
     }
